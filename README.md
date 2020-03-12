@@ -208,11 +208,9 @@ This, the `FirestoreDatabase` takes the `uid` as a constructor parameter. So, th
 To achieve this, `FirestoreDatabase` will be re-created everytime `onAuthStateChanged` changed.
 
 ## Future Roadmap
-
-TODO
-
-## Full Guide:
-Checkout my [medium](https://medium.com/@kenaragorn) post for more info.
+* Additional Sign-in method - Google
+* Separation of different build flavors
+* Animation
 
 ## Conclusion
 Again, take note, this is an example from my few mobile app projects, and instead of repeating the same process over and over again, I decided to spend some time to create this architecture that is easier to onboard for any new Flutter project that used Provider and Firebase.
