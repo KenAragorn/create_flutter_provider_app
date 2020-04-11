@@ -209,7 +209,13 @@ This, the `FirestoreDatabase` takes the `uid` as a constructor parameter. So, th
 To achieve this, `FirestoreDatabase` will be re-created everytime `onAuthStateChanged` changed.
 
 ## Use Case: Internationalization
-Added Internationalization features to the project. The example contains 2 languages namely English and Chinese. There are 2 JSON files that contains key-value pairs of strings for English and Chinese.
+Added Internationalization features to the project. The example contains 2 languages namely English and Chinese. 
+
+With this, the sample app now contains feature that allow user to change language from English to Chinese and vice-versa. 
+
+This feature is added at Setting page - concept works the same as theme.
+
+There are 2 JSON files that contains key-value pairs of strings for English and Chinese.
 
 This 2 files is located at new folder called lang under the project root folder. 
 
@@ -243,6 +249,14 @@ Locale('sk', 'SK')  //example, if you add the Slovakian language
     return ['en', 'zh', 'sk'].contains(locale.languageCode);
   }
 ```
+6. **Take note**, if you prefer the app to be responsive to the phone actual locale setting and do not allow the app to contain any feature to change the language display, then you need to comment out the code at main.dart:
+```
+  return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      locale: languageProviderRef.appLocale,   // <-- comment out this code
+```
+By comment out the code ``` locale: languageProviderRef.appLocale```, the app will response only to the system locale setting. Example:
+![](media/language_control.gif)
 
 ## Future Roadmap
 * Additional Sign-in method - Google

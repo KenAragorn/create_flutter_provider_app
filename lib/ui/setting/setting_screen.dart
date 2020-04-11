@@ -4,6 +4,7 @@ import 'package:noteapp/app_localizations.dart';
 import 'package:noteapp/providers/auth_provider.dart';
 import 'package:noteapp/providers/theme_provider.dart';
 import 'package:noteapp/routes.dart';
+import 'package:noteapp/ui/setting/setting_language_actions.dart';
 import 'package:provider/provider.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -21,8 +22,10 @@ class SettingScreen extends StatelessWidget {
     return ListView(
       children: <Widget>[
         ListTile(
-          title: Text(AppLocalizations.of(context).translate("settingThemeListTitle")),
-          subtitle: Text(AppLocalizations.of(context).translate("settingThemeListSubTitle")),
+          title: Text(
+              AppLocalizations.of(context).translate("settingThemeListTitle")),
+          subtitle: Text(AppLocalizations.of(context)
+              .translate("settingThemeListSubTitle")),
           trailing: Switch(
             activeColor: Theme.of(context).appBarTheme.color,
             activeTrackColor: Theme.of(context).textTheme.title.color,
@@ -34,13 +37,21 @@ class SettingScreen extends StatelessWidget {
           ),
         ),
         ListTile(
-          title: Text(AppLocalizations.of(context).translate("settingLogoutListTitle")),
-          subtitle: Text(AppLocalizations.of(context).translate("settingLogoutListSubTitle")),
+          title: Text(AppLocalizations.of(context).translate("settingLanguageListTitle")),
+          subtitle: Text(AppLocalizations.of(context).translate("settingLanguageListSubTitle")),
+          trailing: SettingLanguageActions(),
+        ),
+        ListTile(
+          title: Text(
+              AppLocalizations.of(context).translate("settingLogoutListTitle")),
+          subtitle: Text(AppLocalizations.of(context)
+              .translate("settingLogoutListSubTitle")),
           trailing: RaisedButton(
               onPressed: () {
                 _confirmSignOut(context);
               },
-              child: Text(AppLocalizations.of(context).translate("settingLogoutButton"))),
+              child: Text(AppLocalizations.of(context)
+                  .translate("settingLogoutButton"))),
         )
       ],
     );
@@ -52,15 +63,19 @@ class SettingScreen extends StatelessWidget {
         builder: (_) => PlatformAlertDialog(
               android: (_) => MaterialAlertDialogData(
                   backgroundColor: Theme.of(context).appBarTheme.color),
-              title: Text(AppLocalizations.of(context).translate("alertDialogTitle")),
-              content: Text(AppLocalizations.of(context).translate("alertDialogMessage")),
+              title: Text(
+                  AppLocalizations.of(context).translate("alertDialogTitle")),
+              content: Text(
+                  AppLocalizations.of(context).translate("alertDialogMessage")),
               actions: <Widget>[
                 PlatformDialogAction(
-                  child: PlatformText(AppLocalizations.of(context).translate("alertDialogCancelBtn")),
+                  child: PlatformText(AppLocalizations.of(context)
+                      .translate("alertDialogCancelBtn")),
                   onPressed: () => Navigator.pop(context),
                 ),
                 PlatformDialogAction(
-                  child: PlatformText(AppLocalizations.of(context).translate("alertDialogYesBtn")),
+                  child: PlatformText(AppLocalizations.of(context)
+                      .translate("alertDialogYesBtn")),
                   onPressed: () {
                     final authProvider =
                         Provider.of<AuthProvider>(context, listen: false);

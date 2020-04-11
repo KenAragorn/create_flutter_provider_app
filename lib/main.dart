@@ -4,6 +4,7 @@ import 'package:noteapp/auth_widget_builder.dart';
 import 'package:noteapp/constants/app_themes.dart';
 import 'package:noteapp/models/user_model.dart';
 import 'package:noteapp/providers/auth_provider.dart';
+import 'package:noteapp/providers/language_provider.dart';
 import 'package:noteapp/providers/theme_provider.dart';
 import 'package:noteapp/routes.dart';
 import 'package:noteapp/services/firestore_database.dart';
@@ -31,6 +32,9 @@ void main() {
           ChangeNotifierProvider<AuthProvider>(
             create: (context) => AuthProvider(),
           ),
+          ChangeNotifierProvider<LanguageProvider>(
+            create: (context) => LanguageProvider(),
+          ),
         ],
         child: MyApp(
           databaseBuilder: (_, uid) => FirestoreDatabase(uid: uid),
@@ -54,56 +58,65 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeProvider>(
       builder: (_, themeProviderRef, __) {
         //{context, data, child}
-        return AuthWidgetBuilder(
-          databaseBuilder: databaseBuilder,
-          builder:
-              (BuildContext context, AsyncSnapshot<UserModel> userSnapshot) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              //List of all supported locales
-              supportedLocales: [
-                Locale('en', 'US'),
-                Locale('zh', 'CN'),
-              ],
-              //These delegates make sure that the localization data for the proper language is loaded
-              localizationsDelegates: [
-                //A class which loads the translations from JSON files
-                AppLocalizations.delegate,
-                //Built-in localization of basic text for Material widgets (means those default Material widget such as alert dialog icon text)
-                GlobalMaterialLocalizations.delegate,
-                //Built-in localization for text direction LTR/RTL
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              //return a locale which will be used by the app
-              localeResolutionCallback: (locale, supportedLocales) {
-                //check if the current device locale is supported or not
-                for (var supportedLocale in supportedLocales) {
-                  if (supportedLocale.languageCode == locale?.languageCode ||
-                      supportedLocale.countryCode == locale?.countryCode) {
-                    return supportedLocale;
-                  }
-                }
-                //if the locale from the mobile device is not supported yet,
-                //user the first one from the list (in our case, that will be English)
-                return supportedLocales.first;
-              },
-              routes: Routes.routes,
-              theme: AppThemes.lightTheme,
-              darkTheme: AppThemes.darkTheme,
-              themeMode: themeProviderRef.isDarkModeOn
-                  ? ThemeMode.dark
-                  : ThemeMode.light,
-              home: Consumer<AuthProvider>(
-                builder: (_, authProviderRef, __) {
-                  if (userSnapshot.connectionState == ConnectionState.active) {
-                    return userSnapshot.hasData ? HomeScreen() : SignInScreen();
-                  }
+        return Consumer<LanguageProvider>(
+          builder: (_, languageProviderRef, __) {
+            return AuthWidgetBuilder(
+              databaseBuilder: databaseBuilder,
+              builder: (BuildContext context,
+                  AsyncSnapshot<UserModel> userSnapshot) {
+                return MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  locale: languageProviderRef.appLocale,
+                  //List of all supported locales
+                  supportedLocales: [
+                    Locale('en', 'US'),
+                    Locale('zh', 'CN'),
+                  ],
+                  //These delegates make sure that the localization data for the proper language is loaded
+                  localizationsDelegates: [
+                    //A class which loads the translations from JSON files
+                    AppLocalizations.delegate,
+                    //Built-in localization of basic text for Material widgets (means those default Material widget such as alert dialog icon text)
+                    GlobalMaterialLocalizations.delegate,
+                    //Built-in localization for text direction LTR/RTL
+                    GlobalWidgetsLocalizations.delegate,
+                  ],
+                  //return a locale which will be used by the app
+                  localeResolutionCallback: (locale, supportedLocales) {
+                    //check if the current device locale is supported or not
+                    for (var supportedLocale in supportedLocales) {
+                      if (supportedLocale.languageCode ==
+                              locale?.languageCode ||
+                          supportedLocale.countryCode == locale?.countryCode) {
+                        return supportedLocale;
+                      }
+                    }
+                    //if the locale from the mobile device is not supported yet,
+                    //user the first one from the list (in our case, that will be English)
+                    return supportedLocales.first;
+                  },
+                  routes: Routes.routes,
+                  theme: AppThemes.lightTheme,
+                  darkTheme: AppThemes.darkTheme,
+                  themeMode: themeProviderRef.isDarkModeOn
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
+                  home: Consumer<AuthProvider>(
+                    builder: (_, authProviderRef, __) {
+                      if (userSnapshot.connectionState ==
+                          ConnectionState.active) {
+                        return userSnapshot.hasData
+                            ? HomeScreen()
+                            : SignInScreen();
+                      }
 
-                  return Material(
-                    child: CircularProgressIndicator(),
-                  );
-                },
-              ),
+                      return Material(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                  ),
+                );
+              },
             );
           },
         );
