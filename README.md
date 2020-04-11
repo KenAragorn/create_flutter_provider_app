@@ -255,7 +255,8 @@ Locale('sk', 'SK')  //example, if you add the Slovakian language
       debugShowCheckedModeBanner: false,
       locale: languageProviderRef.appLocale,   // <-- comment out this code
 ```
-By comment out the code ``` locale: languageProviderRef.appLocale```, the app will response only to the system locale setting. Example:
+By comment out the code ``` locale: languageProviderRef.appLocale```, the app will response only to the system locale setting. For example:
+
 ![](media/language_control.gif)
 
 ## Future Roadmap
