@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/constants/app_strings.dart';
+import 'package:noteapp/app_localizations.dart';
 import 'package:noteapp/models/todo_model.dart';
 import 'package:noteapp/services/firestore_database.dart';
 import 'package:provider/provider.dart';
@@ -50,8 +50,8 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
           },
         ),
         title: Text(_todo != null
-            ? AppStrings.todosCreateEditAppBarTitleEditTxt
-            : AppStrings.todosCreateEditAppBarTitleNewTxt),
+            ? AppLocalizations.of(context).translate("todosCreateEditAppBarTitleEditTxt")
+            : AppLocalizations.of(context).translate("todosCreateEditAppBarTitleNewTxt")),
         actions: <Widget>[
           FlatButton(
               onPressed: () {
@@ -104,13 +104,13 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
                 controller: _taskController,
                 style: Theme.of(context).textTheme.body1,
                 validator: (value) => value.isEmpty
-                    ? AppStrings.todosCreateEditTaskNameValidatorMsg
+                    ? AppLocalizations.of(context).translate("todosCreateEditTaskNameValidatorMsg")
                     : null,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           color: Theme.of(context).iconTheme.color, width: 2)),
-                  labelText: AppStrings.todosCreateEditTaskNameTxt,
+                  labelText: AppLocalizations.of(context).translate("todosCreateEditTaskNameTxt"),
                 ),
               ),
               Padding(
@@ -124,7 +124,7 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
                         borderSide: BorderSide(
                             color: Theme.of(context).iconTheme.color,
                             width: 2)),
-                    labelText: AppStrings.todosCreateEditNotesTxt,
+                    labelText: AppLocalizations.of(context).translate("todosCreateEditNotesTxt"),
                     alignLabelWithHint: true,
                     contentPadding: new EdgeInsets.symmetric(
                         vertical: 10.0, horizontal: 10.0),
@@ -136,7 +136,7 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(AppStrings.todosCreateEditCompletedTxt),
+                    Text(AppLocalizations.of(context).translate("todosCreateEditCompletedTxt")),
                     Checkbox(
                         value: _checkboxCompleted,
                         onChanged: (value) {

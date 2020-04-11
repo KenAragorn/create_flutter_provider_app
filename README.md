@@ -88,6 +88,7 @@ Done. Try launch the app using emulator or your preferred physical test device. 
 * [Cloud Firestore](https://pub.dev/packages/cloud_firestore)
 * [Shared Preferences](https://pub.dev/packages/shared_preferences)
 * [Flutter Platform Widgets](https://pub.dev/packages/flutter_platform_widgets)
+* [Flutter Localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
 
 ## Project Key Features:
 
@@ -97,7 +98,7 @@ Done. Try launch the app using emulator or your preferred physical test device. 
 * Theme – Separation of theme files that support dark and light theme
 * Provider – State management
 * Caching – Using SharedPreferences to keep track theme selection
-
+* Internationalization – **Newly added - 11 April 2020** 
 
 ## Folder Structure: 
 ```
@@ -109,6 +110,7 @@ lib/
 |- providers/ – contains all Provider models for each of the widget views.
 |- ui/ the main folder that will contains all UI related breaking down further by different modules (such as authentication, home, etc) and sub section (reusable widgets and screens).
 |- routes.dart
+|- app_localizations.dart
 |- auth_widget_builder.dart
 |- main.dart
 ```
@@ -119,7 +121,6 @@ Basically, all needed constant files for the application to work will be here.
 constants/
 |- app_themes.dart – the theme file for the app
 |- app_font_family.dart – the app global supported font family
-|- app_strings.dart – the strings value used by the app
 ```
 
 ### What inside cache?
@@ -207,10 +208,47 @@ This, the `FirestoreDatabase` takes the `uid` as a constructor parameter. So, th
 
 To achieve this, `FirestoreDatabase` will be re-created everytime `onAuthStateChanged` changed.
 
+## Use Case: Internationalization
+Added Internationalization features to the project. The example contains 2 languages namely English and Chinese. There are 2 JSON files that contains key-value pairs of strings for English and Chinese.
+
+This 2 files is located at new folder called lang under the project root folder. 
+
+```
+lang/
+|- en.json
+|- zh.json
+```
+
+By using JSON, it will be easier to manage as you can give it to translator to translate the words without needing them to access the code.
+
+The pubspec.yaml is updated to include dependency for flutter_localizations. Also, added the asset reference for the new folder lang.
+
+Below are the steps require to add for additional languages.
+1. Create a new JSON file for the new language file. For example, sk.json for Slovak.
+2. Copy the content of en.json/zh.json to the new json file. 
+3. Pass the new JSON file to translator or do it yourself and update the word to the right word.
+4. Update the main.dart to include the additional supported locales for the additional language. Inside main.dart:
+```
+supportedLocales: [
+Locale('en', 'US'), 
+Locale('zh', 'CN'),
+Locale('sk', 'SK')  //example, if you add the Slovakian language 
+],
+```
+5. Update the app_localizations.dart to include additional supported locales for the additional language:
+```
+  @override
+  bool isSupported(Locale locale) {
+    // Include all of your supported language codes here
+    return ['en', 'zh', 'sk'].contains(locale.languageCode);
+  }
+```
+
 ## Future Roadmap
 * Additional Sign-in method - Google
 * Separation of different build flavors
 * Animation
+* ~~Internationalization~~
 
 ## Conclusion
 Again, take note, this is an example from my few mobile app projects, and instead of repeating the same process over and over again, I decided to spend some time to create this architecture that is easier to onboard for any new Flutter project that used Provider and Firebase.

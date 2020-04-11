@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:noteapp/constants/app_strings.dart';
+import 'package:noteapp/app_localizations.dart';
 import 'package:noteapp/routes.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       children: <Widget>[
         Center(
             child: Text(
-          AppStrings.splashTitle,
+              AppLocalizations.of(context).translate("splashTitle"),
           style: TextStyle(
             fontSize: Theme.of(context).textTheme.headline.fontSize,
           ),

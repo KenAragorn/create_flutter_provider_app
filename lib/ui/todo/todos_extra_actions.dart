@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/constants/app_strings.dart';
+import 'package:noteapp/app_localizations.dart';
 import 'package:noteapp/services/firestore_database.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +9,7 @@ class TodosExtraActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirestoreDatabase firestoreDatabase = Provider.of(context);
+
 
     return PopupMenuButton<TodosActions>(
       icon: Icon(Icons.more_horiz),
@@ -22,13 +23,13 @@ class TodosExtraActions extends StatelessWidget {
         }
       },
       itemBuilder: (BuildContext context) => <PopupMenuEntry<TodosActions>>[
-        const PopupMenuItem<TodosActions>(
+        PopupMenuItem<TodosActions>(
           value: TodosActions.toggleAllComplete,
-          child: Text(AppStrings.todosPopUpToggleAllComplete),
+          child: Text(AppLocalizations.of(context).translate("todosPopUpToggleAllComplete")),
         ),
-        const PopupMenuItem<TodosActions>(
+        PopupMenuItem<TodosActions>(
           value: TodosActions.clearCompleted,
-          child: Text(AppStrings.todosPopUpToggleClearCompleted),
+          child: Text(AppLocalizations.of(context).translate("todosPopUpToggleClearCompleted")),
         ),
       ],
     );

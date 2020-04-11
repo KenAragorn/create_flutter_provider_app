@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/constants/app_strings.dart';
+import 'package:noteapp/app_localizations.dart';
 import 'package:noteapp/providers/auth_provider.dart';
 import 'package:noteapp/routes.dart';
 import 'package:provider/provider.dart';
@@ -68,13 +68,13 @@ class _SignInScreenState extends State<SignInScreen> {
                   controller: _emailController,
                   style: Theme.of(context).textTheme.body1,
                   validator: (value) =>
-                      value.isEmpty ? AppStrings.loginTxtErrorEmail : null,
+                      value.isEmpty ? AppLocalizations.of(context).translate("loginTxtErrorEmail") : null,
                   decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.email,
                         color: Theme.of(context).iconTheme.color,
                       ),
-                      labelText: AppStrings.loginTxtEmail,
+                      labelText: AppLocalizations.of(context).translate("loginTxtEmail"),
                       border: OutlineInputBorder()),
                 ),
                 Padding(
@@ -85,14 +85,14 @@ class _SignInScreenState extends State<SignInScreen> {
                     controller: _passwordController,
                     style: Theme.of(context).textTheme.body1,
                     validator: (value) => value.length < 6
-                        ? AppStrings.loginTxtErrorPassword
+                        ? AppLocalizations.of(context).translate("loginTxtErrorPassword")
                         : null,
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.lock,
                           color: Theme.of(context).iconTheme.color,
                         ),
-                        labelText: AppStrings.loginTxtPassword,
+                        labelText: AppLocalizations.of(context).translate("loginTxtPassword"),
                         border: OutlineInputBorder()),
                   ),
                 ),
@@ -102,7 +102,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       )
                     : RaisedButton(
                         child: Text(
-                          AppStrings.loginBtnSignIn,
+                          AppLocalizations.of(context).translate("loginBtnSignIn"),
                           style: Theme.of(context).textTheme.button,
                         ),
                         onPressed: () async {
@@ -117,7 +117,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                             if (!status) {
                               _scaffoldKey.currentState.showSnackBar(SnackBar(
-                                content: Text(AppStrings.loginTxtErrorSignIn),
+                                content: Text(AppLocalizations.of(context).translate("loginTxtErrorSignIn")),
                               ));
                             }
                           }
@@ -130,7 +130,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         padding: const EdgeInsets.only(top: 48),
                         child: Center(
                             child: Text(
-                          AppStrings.loginTxtDontHaveAccount,
+                              AppLocalizations.of(context).translate("loginTxtDontHaveAccount"),
                           style: Theme.of(context).textTheme.button,
                         )),
                       ),
@@ -139,7 +139,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: null,
                       )
                     : FlatButton(
-                        child: Text(AppStrings.loginBtnLinkCreateAccount),
+                        child: Text(AppLocalizations.of(context).translate("loginBtnLinkCreateAccount")),
                         textColor: Theme.of(context).iconTheme.color,
                         onPressed: () {
                           Navigator.of(context)

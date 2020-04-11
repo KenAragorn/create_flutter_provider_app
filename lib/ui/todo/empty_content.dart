@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/constants/app_strings.dart';
 
 class EmptyContentWidget extends StatelessWidget {
   final String title;
@@ -7,8 +6,8 @@ class EmptyContentWidget extends StatelessWidget {
 
   EmptyContentWidget(
       {Key key,
-      this.title = AppStrings.todosEmptyTopMsgDefaultTxt,
-      this.message = AppStrings.todosEmptyBottomDefaultMsgTxt})
+      this.title,
+      this.message})
       : super(key: key);
 
   @override

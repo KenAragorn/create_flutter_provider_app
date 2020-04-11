@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:noteapp/auth_widget_builder.dart';
-import 'package:noteapp/constants/app_strings.dart';
 import 'package:noteapp/constants/app_themes.dart';
 import 'package:noteapp/models/user_model.dart';
 import 'package:noteapp/providers/auth_provider.dart';
@@ -11,6 +10,9 @@ import 'package:noteapp/services/firestore_database.dart';
 import 'package:noteapp/ui/auth/sign_in_screen.dart';
 import 'package:noteapp/ui/home/home.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'app_localizations.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,7 +60,33 @@ class MyApp extends StatelessWidget {
               (BuildContext context, AsyncSnapshot<UserModel> userSnapshot) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: AppStrings.appName,
+              //List of all supported locales
+              supportedLocales: [
+                Locale('en', 'US'),
+                Locale('zh', 'CN'),
+              ],
+              //These delegates make sure that the localization data for the proper language is loaded
+              localizationsDelegates: [
+                //A class which loads the translations from JSON files
+                AppLocalizations.delegate,
+                //Built-in localization of basic text for Material widgets (means those default Material widget such as alert dialog icon text)
+                GlobalMaterialLocalizations.delegate,
+                //Built-in localization for text direction LTR/RTL
+                GlobalWidgetsLocalizations.delegate,
+              ],
+              //return a locale which will be used by the app
+              localeResolutionCallback: (locale, supportedLocales) {
+                //check if the current device locale is supported or not
+                for (var supportedLocale in supportedLocales) {
+                  if (supportedLocale.languageCode == locale?.languageCode ||
+                      supportedLocale.countryCode == locale?.countryCode) {
+                    return supportedLocale;
+                  }
+                }
+                //if the locale from the mobile device is not supported yet,
+                //user the first one from the list (in our case, that will be English)
+                return supportedLocales.first;
+              },
               routes: Routes.routes,
               theme: AppThemes.lightTheme,
               darkTheme: AppThemes.darkTheme,
