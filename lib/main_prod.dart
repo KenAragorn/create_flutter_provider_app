@@ -19,7 +19,7 @@ void main() {
        */
       MultiProvider(
         providers: [
-          Provider<Flavor>.value(value: Flavor.dev),
+          Provider<Flavor>.value(value: Flavor.prod),
           ChangeNotifierProvider<ThemeProvider>(
             create: (context) => ThemeProvider(),
           ),

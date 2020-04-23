@@ -99,6 +99,7 @@ Done. Try launch the app using emulator or your preferred physical test device. 
 * Provider – State management
 * Caching – Using SharedPreferences to keep track theme selection
 * Internationalization – **Newly added - 11 April 2020** 
+* Multiple Build Environment – Using multiple Flavors to connect 2 different Firebase environment - Dev and Production **Newly added - 23 April 2020** 
 
 ## Folder Structure: 
 ```
@@ -112,7 +113,10 @@ lib/
 |- routes.dart
 |- app_localizations.dart
 |- auth_widget_builder.dart
-|- main.dart
+|- flavor.dart - main class for handling the multiple build - dev and production
+|- my_app.dart
+|- main.dart - the main.dart file for dev environment (means, connecting to Firebase Cloud Database Dev)
+|- main_prod.dart - the main.dart for production environment (means, connecting to Firebase Cloud Database Production)
 ```
 
 ### What inside constants?
@@ -259,10 +263,164 @@ By comment out the code ``` locale: languageProviderRef.appLocale```, the app wi
 
 ![](media/language_control.gif)
 
+## Use Case: Multiple Build Environment – Using multiple Flavors
+Added configurations and further enhanced the project structure with new codes to handle multiple build environment. 
+
+It is always a good practise to build separate apps from the same source code and for different environment such as development, staging and production.
+
+In this latest update, we added 2 build environment namely development and production. 
+
+Below are the steps for existing developers that used the older code and what need to be done to make your local project to have multiple build.
+
+1. Create 2 Different Firebase Projects and Configuration 
+![](media/flavor-step-1.png)
+For this, as mentioned earlier, we will be defining 2 environments namely development and production, so we will need to create 2 Firebase projects. 
+Then, for each Firebase projects, create a Cloud Firestore database. Do remember to have at least 1 sign-in method enabled for both projects – for this example, we are using Email/Password only.
+Next, we need to get the google-services.json for each Firebase project. 
+
+To do that, lets assume we will be using the following applicationId for both environment:
+-	Note App Prod – applicationId: com.example.create_flutter_provider_app.prod
+-	Note App Dev - applicationId: com.example.create_flutter_provider_app.dev
+
+You can use your preference naming convention for the applicationId, as long it is understandable that 1 is for production environment and another is for development environment.
+With the applicationId defined, we will used it to add Firebase to our project. 
+Go to each Firebase project, click on the small Android icon and the following screen will appear. Add the applicationId to the right Firebase project as specified above.
+![](media/flavor-step-1b.png)
+Once registering the app, download the google-services.json for each Firebase projects.
+
+2. Updating Project Config Files
+Add in the following configuration into the project android/app/build.gradle:
+```
+    flavorDimensions "flavor-type"
+
+    productFlavors {
+        dev {
+            dimension "flavor-type"
+            applicationId "com.example.create_flutter_provider_app.dev"
+            versionCode 1
+            versionName "1.0"
+        }
+        prod{
+            dimension "flavor-type"
+            applicationId "com.example.create_flutter_provider_app.prod"
+            versionCode 1
+            versionName "1.0"
+        }
+    }
+```
+An example:
+![](media/flavor-step-2.png)
+
+3. Create 2 folders Representing Development and Production
+![](media/flavor-step-3.png)
+The folder name must match the named specified in productFlavors (android/app/build.gradle). 
+The previous downloaded google-services.json files for both Firebase projects need to be moved to the right folder. 
+For the file downloaded from Note App Prod, place it under the folder prod and for the same file name downloaded from Note App Dev, place it under the dev folder.
+For the sub folder called ‘res’, ignore it for now. We will go through that shortly.
+
+4. Having different app name and app icon for Dev and Prod
+We want to have a different app name for our project. This is helpful as with Flavor setup, we can install both app in the same devices for testing. 
+Having app name such as NoteApp-Dev or Note-Dev or Note-Prod helps us to identify which app is for which environment – development or production.
+The same concept and benefits if we have different app icon for each apps that are connecting to different environment. 
+For app name, create file called strings.xml and with the following content:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="app_name">Note-Dev</string>
+</resources>
+
+```
+Change the app_name to fit your Dev app. Put this file under the dev/res/values:
+![](media/flavor-step-4.png)
+Do the same for the prod environment but name your app_name to be Note-Prod or something that represent it is the app for Production.
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="app_name">Note-Prod</string>
+</resources>
+
+```
+The final step for the app name is to change the Android manifest file to refer to the String name app_name. 
+To do that, open the file AndroidManifest.xml located at android/app/src/main folder. Update the android:label as follow:
+```
+android:label="@string/app_name"
+
+```
+Next, for the images, copied all 5 sub folders that start with the name mipmap-xxx from main/res/, and paste it to the res folder for both dev and prod. 
+At the end, you should have the following view:
+![](media/flavor-step-4b.png)
+If you notice, each sub-folder with the name minimap contains images and that image is the app icon image. Change it to your needs. 
+
+5. New Dart files and Code Updates
+Create a flavour.dart file. This will just contain enum value that represent both dev and prod environment that the main class can refer and decide. 
+The code:
+```
+enum Flavor {dev, prod}
+```
+Since we are using the Flutter template shared above, we will need to create additional main.dart that represent the production build and using the original main.dart to be representing as development build.
+Our goal is to able to build and run different flavor as follow:
+```
+flutter run --flavor dev -t lib/main.dart
+flutter run --flavor prod -t lib/main_prod.dart
+```
+First, update the main.dart as follow:
+```
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) async {
+    runApp(
+      MultiProvider(
+        providers: [
+          Provider<Flavor>.value(value: Flavor.dev),
+          ChangeNotifierProvider<ThemeProvider>(
+            create: (context) => ThemeProvider(),
+          ),
+          ChangeNotifierProvider<AuthProvider>(
+            create: (context) => AuthProvider(),
+          ),
+          ChangeNotifierProvider<LanguageProvider>(
+            create: (context) => LanguageProvider(),
+          ),
+        ],
+        child: MyApp(
+          databaseBuilder: (_, uid) => FirestoreDatabase(uid: uid),
+        ),
+      ),
+    );
+  });
+}
+
+```
+As mentioned before, we will make the main.dart as the representative of building a development build. 
+As this project is using Provider, we will pre-set the main.dart to use the dev flavor. 
+Duplicate this file and renamed it as main_prod.dart. Update the Flavor.dev to Flavor.prod.
+Then, apart from the previous app name and app icon changes, we felt it is also necessary to display some info at the first screen namely the sign-in screen. 
+Thus, since we are using Provider to set the initial value of the both main.dart and main_prod.dart, we then can access this initial default value at the sign-in screen as follow:
+```
+Text(
+  Provider.of<Flavor>(context).toString(),
+),
+```
+So, what will happen if we were to run the following code:
+```
+flutter run --flavor dev -t lib/main.dart
+```
+Flutter will try to build and run the app using the flavor dev and using the main.dart file. 
+This will result the following display of sign-in screen:
+![](media/flavor-step-5.png)
+Notice the bottom part, it contains the value of the enum value dev.
+
+The command: ```flutter run --flavor dev -t lib/main.dart``` is basically telling Flutter to build the app for testing using the flavour dev specified in the build.gradle. 
+Also, the second part is basically telling it to run it using main.dart file. And since our main.dart has the initial flavor value pre-set as dev, it will be display as Flavor.dev.
+If were to run the command: ```flutter run --flavor prod -t lib/main_prod.dart```, will result the following:
+![](media/flavor-step-5b.png)
+Notice the bottom of the screen, it is displaying Flavor.prod.
+
 ## Future Roadmap
 * Additional Sign-in method - Google
-* Separation of different build flavors
 * Animation
+* ~~Separation of different build flavors~~
 * ~~Internationalization~~
 
 ## Conclusion
