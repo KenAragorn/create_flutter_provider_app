@@ -274,6 +274,7 @@ Below are the steps for existing developers that used the older code and what ne
 
 1. Create 2 Different Firebase Projects and Configuration 
 ![](media/flavor-step-1.png)
+
 For this, as mentioned earlier, we will be defining 2 environments namely development and production, so we will need to create 2 Firebase projects. 
 Then, for each Firebase projects, create a Cloud Firestore database. Do remember to have at least 1 sign-in method enabled for both projects – for this example, we are using Email/Password only.
 Next, we need to get the google-services.json for each Firebase project. 
@@ -286,6 +287,7 @@ You can use your preference naming convention for the applicationId, as long it 
 With the applicationId defined, we will used it to add Firebase to our project. 
 Go to each Firebase project, click on the small Android icon and the following screen will appear. Add the applicationId to the right Firebase project as specified above.
 ![](media/flavor-step-1b.png)
+
 Once registering the app, download the google-services.json for each Firebase projects.
 
 2. Updating Project Config Files
