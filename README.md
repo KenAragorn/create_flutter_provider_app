@@ -309,10 +309,14 @@ Add in the following configuration into the project android/app/build.gradle:
     }
 ```
 An example:
+
 ![](media/flavor-step-2.png)
 
+
 3. Create 2 folders Representing Development and Production
+
 ![](media/flavor-step-3.png)
+
 The folder name must match the named specified in productFlavors (android/app/build.gradle). 
 The previous downloaded google-services.json files for both Firebase projects need to be moved to the right folder. 
 For the file downloaded from Note App Prod, place it under the folder prod and for the same file name downloaded from Note App Dev, place it under the dev folder.
@@ -331,7 +335,9 @@ For app name, create file called strings.xml and with the following content:
 
 ```
 Change the app_name to fit your Dev app. Put this file under the dev/res/values:
+
 ![](media/flavor-step-4.png)
+
 Do the same for the prod environment but name your app_name to be Note-Prod or something that represent it is the app for Production.
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -348,7 +354,9 @@ android:label="@string/app_name"
 ```
 Next, for the images, copied all 5 sub folders that start with the name mipmap-xxx from main/res/, and paste it to the res folder for both dev and prod. 
 At the end, you should have the following view:
+
 ![](media/flavor-step-4b.png)
+
 If you notice, each sub-folder with the name minimap contains images and that image is the app icon image. Change it to your needs. 
 
 5. New Dart files and Code Updates
@@ -408,13 +416,17 @@ flutter run --flavor dev -t lib/main.dart
 ```
 Flutter will try to build and run the app using the flavor dev and using the main.dart file. 
 This will result the following display of sign-in screen:
+
 ![](media/flavor-step-5.png)
+
 Notice the bottom part, it contains the value of the enum value dev.
 
 The command: ```flutter run --flavor dev -t lib/main.dart``` is basically telling Flutter to build the app for testing using the flavour dev specified in the build.gradle. 
 Also, the second part is basically telling it to run it using main.dart file. And since our main.dart has the initial flavor value pre-set as dev, it will be display as Flavor.dev.
 If were to run the command: ```flutter run --flavor prod -t lib/main_prod.dart```, will result the following:
+
 ![](media/flavor-step-5b.png)
+
 Notice the bottom of the screen, it is displaying Flavor.prod.
 
 ## Future Roadmap
