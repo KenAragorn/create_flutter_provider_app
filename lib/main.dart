@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:noteapp/flavor.dart';
 import 'package:noteapp/my_app.dart';
 import 'package:noteapp/providers/auth_provider.dart';
@@ -12,6 +13,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) async {
+    await Firebase.initializeApp();
     runApp(
       /*
       * MultiProvider for top services that do not depends on any runtime values
