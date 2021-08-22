@@ -32,6 +32,7 @@ void main() {
         ],
         child: MyApp(
           databaseBuilder: (_, uid) => FirestoreDatabase(uid: uid),
+          key: Key('MyApp'),
         ),
       ),
     );

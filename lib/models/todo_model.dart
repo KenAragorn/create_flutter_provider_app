@@ -7,16 +7,12 @@ class TodoModel {
   final bool complete;
 
   TodoModel(
-      {@required this.id,
-      @required this.task,
-      this.extraNote,
-      @required this.complete});
+      {required this.id,
+      required this.task,
+      required this.extraNote,
+      required this.complete});
 
   factory TodoModel.fromMap(Map<String, dynamic> data, String documentId) {
-    if (data == null) {
-      return null;
-    }
-
     String task = data['task'];
     String extraNote = data['extraNote'];
     bool complete = data['complete'];

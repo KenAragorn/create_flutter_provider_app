@@ -3,7 +3,7 @@ import 'package:noteapp/caches/sharedpref/shared_preference_helper.dart';
 
 class ThemeProvider extends ChangeNotifier {
   // shared pref object
-  SharedPreferenceHelper _sharedPrefsHelper;
+  late SharedPreferenceHelper _sharedPrefsHelper;
 
   bool _isDarkModeOn = false;
 

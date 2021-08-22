@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
  */
 class AuthWidgetBuilder extends StatelessWidget {
   const AuthWidgetBuilder(
-      {Key key, @required this.builder, @required this.databaseBuilder})
+      {required Key key, required this.builder, required this.databaseBuilder})
       : super(key: key);
   final Widget Function(BuildContext, AsyncSnapshot<UserModel>) builder;
   final FirestoreDatabase Function(BuildContext context, String uid)
@@ -26,7 +26,7 @@ class AuthWidgetBuilder extends StatelessWidget {
     return StreamBuilder<UserModel>(
       stream: authService.user,
       builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot) {
-        final UserModel user = snapshot.data;
+        final UserModel? user = snapshot.data;
         if (user != null) {
           /*
           * For any other Provider services that rely on user data can be

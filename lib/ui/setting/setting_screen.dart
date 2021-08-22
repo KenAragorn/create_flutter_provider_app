@@ -28,7 +28,7 @@ class SettingScreen extends StatelessWidget {
               .translate("settingThemeListSubTitle")),
           trailing: Switch(
             activeColor: Theme.of(context).appBarTheme.color,
-            activeTrackColor: Theme.of(context).textTheme.title.color,
+            activeTrackColor: Theme.of(context).textTheme.title!.color,
             value: Provider.of<ThemeProvider>(context).isDarkModeOn,
             onChanged: (booleanValue) {
               Provider.of<ThemeProvider>(context, listen: false)
@@ -37,8 +37,10 @@ class SettingScreen extends StatelessWidget {
           ),
         ),
         ListTile(
-          title: Text(AppLocalizations.of(context).translate("settingLanguageListTitle")),
-          subtitle: Text(AppLocalizations.of(context).translate("settingLanguageListSubTitle")),
+          title: Text(AppLocalizations.of(context)
+              .translate("settingLanguageListTitle")),
+          subtitle: Text(AppLocalizations.of(context)
+              .translate("settingLanguageListSubTitle")),
           trailing: SettingLanguageActions(),
         ),
         ListTile(
@@ -61,7 +63,7 @@ class SettingScreen extends StatelessWidget {
     showPlatformDialog(
         context: context,
         builder: (_) => PlatformAlertDialog(
-              android: (_) => MaterialAlertDialogData(
+              material: (_, PlatformTarget target) => MaterialAlertDialogData(
                   backgroundColor: Theme.of(context).appBarTheme.color),
               title: Text(
                   AppLocalizations.of(context).translate("alertDialogTitle")),
