@@ -11,8 +11,8 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  TextEditingController _emailController;
-  TextEditingController _passwordController;
+  late TextEditingController _emailController;
+  late TextEditingController _passwordController;
   final _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -68,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 TextFormField(
                   controller: _emailController,
                   style: Theme.of(context).textTheme.body1,
-                  validator: (value) => value.isEmpty
+                  validator: (value) => value!.isEmpty
                       ? AppLocalizations.of(context)
                           .translate("loginTxtErrorEmail")
                       : null,
@@ -88,7 +88,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     maxLength: 12,
                     controller: _passwordController,
                     style: Theme.of(context).textTheme.body1,
-                    validator: (value) => value.length < 6
+                    validator: (value) => value!.length < 6
                         ? AppLocalizations.of(context)
                             .translate("loginTxtErrorPassword")
                         : null,
@@ -113,7 +113,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           style: Theme.of(context).textTheme.button,
                         ),
                         onPressed: () async {
-                          if (_formKey.currentState.validate()) {
+                          if (_formKey.currentState!.validate()) {
                             FocusScope.of(context)
                                 .unfocus(); //to hide the keyboard - if any
 
@@ -123,10 +123,13 @@ class _SignInScreenState extends State<SignInScreen> {
                                     _passwordController.text);
 
                             if (!status) {
-                              _scaffoldKey.currentState.showSnackBar(SnackBar(
+                              _scaffoldKey.currentState!.showSnackBar(SnackBar(
                                 content: Text(AppLocalizations.of(context)
                                     .translate("loginTxtErrorSignIn")),
                               ));
+                            } else {
+                              Navigator.of(context)
+                                  .pushReplacementNamed(Routes.home);
                             }
                           }
                         }),

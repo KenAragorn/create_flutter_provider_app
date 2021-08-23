@@ -5,9 +5,9 @@ class EmptyContentWidget extends StatelessWidget {
   final String message;
 
   EmptyContentWidget(
-      {Key key,
-      this.title,
-      this.message})
+      {required Key key,
+      required this.title,
+      required this.message})
       : super(key: key);
 
   @override

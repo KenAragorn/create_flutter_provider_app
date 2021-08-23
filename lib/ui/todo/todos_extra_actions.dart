@@ -10,7 +10,6 @@ class TodosExtraActions extends StatelessWidget {
   Widget build(BuildContext context) {
     FirestoreDatabase firestoreDatabase = Provider.of(context);
 
-
     return PopupMenuButton<TodosActions>(
       icon: Icon(Icons.more_horiz),
       onSelected: (TodosActions result) {
@@ -25,11 +24,13 @@ class TodosExtraActions extends StatelessWidget {
       itemBuilder: (BuildContext context) => <PopupMenuEntry<TodosActions>>[
         PopupMenuItem<TodosActions>(
           value: TodosActions.toggleAllComplete,
-          child: Text(AppLocalizations.of(context).translate("todosPopUpToggleAllComplete")),
+          child: Text(AppLocalizations.of(context)
+              .translate("todosPopUpToggleAllComplete")),
         ),
         PopupMenuItem<TodosActions>(
           value: TodosActions.clearCompleted,
-          child: Text(AppLocalizations.of(context).translate("todosPopUpToggleClearCompleted")),
+          child: Text(AppLocalizations.of(context)
+              .translate("todosPopUpToggleClearCompleted")),
         ),
       ],
     );

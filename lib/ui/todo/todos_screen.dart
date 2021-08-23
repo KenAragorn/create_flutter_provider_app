@@ -24,9 +24,11 @@ class TodosScreen extends StatelessWidget {
         title: StreamBuilder(
             stream: authProvider.user,
             builder: (context, snapshot) {
-              final UserModel user = snapshot.data;
+              final UserModel? user = snapshot.data as UserModel?;
               return Text(user != null
-                  ? user.email + " - " + AppLocalizations.of(context).translate("homeAppBarTitle")
+                  ? user.email! +
+                      " - " +
+                      AppLocalizations.of(context).translate("homeAppBarTitle")
                   : AppLocalizations.of(context).translate("homeAppBarTitle"));
             }),
         actions: <Widget>[
@@ -34,7 +36,7 @@ class TodosScreen extends StatelessWidget {
               stream: firestoreDatabase.todosStream(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  List<TodoModel> todos = snapshot.data;
+                  List<TodoModel> todos = snapshot.data as List<TodoModel>;
                   return Visibility(
                       visible: todos.isNotEmpty ? true : false,
                       child: TodosExtraActions());
@@ -73,7 +75,7 @@ class TodosScreen extends StatelessWidget {
         stream: firestoreDatabase.todosStream(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            List<TodoModel> todos = snapshot.data;
+            List<TodoModel> todos = snapshot.data as List<TodoModel>;
             if (todos.isNotEmpty) {
               return ListView.separated(
                 itemCount: todos.length,
@@ -83,7 +85,8 @@ class TodosScreen extends StatelessWidget {
                       color: Colors.red,
                       child: Center(
                           child: Text(
-                            AppLocalizations.of(context).translate("todosDismissibleMsgTxt"),
+                        AppLocalizations.of(context)
+                            .translate("todosDismissibleMsgTxt"),
                         style: TextStyle(color: Theme.of(context).canvasColor),
                       )),
                     ),
@@ -91,16 +94,19 @@ class TodosScreen extends StatelessWidget {
                     onDismissed: (direction) {
                       firestoreDatabase.deleteTodo(todos[index]);
 
-                      _scaffoldKey.currentState.showSnackBar(SnackBar(
+                      _scaffoldKey.currentState!.showSnackBar(SnackBar(
                         backgroundColor: Theme.of(context).appBarTheme.color,
                         content: Text(
-                          AppLocalizations.of(context).translate("todosSnackBarContent") + todos[index].task,
+                          AppLocalizations.of(context)
+                                  .translate("todosSnackBarContent") +
+                              todos[index].task,
                           style:
                               TextStyle(color: Theme.of(context).canvasColor),
                         ),
                         duration: Duration(seconds: 3),
                         action: SnackBarAction(
-                          label: AppLocalizations.of(context).translate("todosSnackBarActionLbl"),
+                          label: AppLocalizations.of(context)
+                              .translate("todosSnackBarActionLbl"),
                           textColor: Theme.of(context).canvasColor,
                           onPressed: () {
                             firestoreDatabase.setTodo(todos[index]);
@@ -116,7 +122,7 @@ class TodosScreen extends StatelessWidget {
                                 id: todos[index].id,
                                 task: todos[index].task,
                                 extraNote: todos[index].extraNote,
-                                complete: value);
+                                complete: value!);
                             firestoreDatabase.setTodo(todo);
                           }),
                       title: Text(todos[index].task),
@@ -133,14 +139,20 @@ class TodosScreen extends StatelessWidget {
               );
             } else {
               return EmptyContentWidget(
-                title: AppLocalizations.of(context).translate("todosEmptyTopMsgDefaultTxt"),
-                message: AppLocalizations.of(context).translate("todosEmptyBottomDefaultMsgTxt"),
+                title: AppLocalizations.of(context)
+                    .translate("todosEmptyTopMsgDefaultTxt"),
+                message: AppLocalizations.of(context)
+                    .translate("todosEmptyBottomDefaultMsgTxt"),
+                key: Key('EmptyContentWidget'),
               );
             }
           } else if (snapshot.hasError) {
             return EmptyContentWidget(
-              title: AppLocalizations.of(context).translate("todosErrorTopMsgTxt"),
-              message: AppLocalizations.of(context).translate("todosErrorBottomMsgTxt"),
+              title:
+                  AppLocalizations.of(context).translate("todosErrorTopMsgTxt"),
+              message: AppLocalizations.of(context)
+                  .translate("todosErrorBottomMsgTxt"),
+              key: Key('EmptyContentWidget'),
             );
           }
           return Center(child: CircularProgressIndicator());

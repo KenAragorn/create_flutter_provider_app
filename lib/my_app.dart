@@ -15,7 +15,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key, this.databaseBuilder}) : super(key: key);
+  const MyApp({required Key key, required this.databaseBuilder})
+      : super(key: key);
 
   // Expose builders for 3rd party services at the root of the widget tree
   // This is useful when mocking services while testing
@@ -88,6 +89,7 @@ class MyApp extends StatelessWidget {
                   ),
                 );
               },
+              key: Key('AuthWidget'),
             );
           },
         );

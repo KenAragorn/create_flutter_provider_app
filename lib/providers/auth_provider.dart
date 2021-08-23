@@ -24,27 +24,27 @@ status for your UI or widgets to listen.
 
 class AuthProvider extends ChangeNotifier {
   //Firebase Auth object
-  FirebaseAuth _auth;
+  late FirebaseAuth _auth;
 
   //Default status
   Status _status = Status.Uninitialized;
 
   Status get status => _status;
 
-  Stream<UserModel> get user => _auth.onAuthStateChanged.map(_userFromFirebase);
+  Stream<UserModel> get user => _auth.authStateChanges().map(_userFromFirebase);
 
   AuthProvider() {
     //initialise object
     _auth = FirebaseAuth.instance;
 
     //listener for authentication changes such as user sign in and sign out
-    _auth.onAuthStateChanged.listen(onAuthStateChanged);
+    _auth.authStateChanges().listen(onAuthStateChanged);
   }
 
-  //Create user object based on the given FirebaseUser
-  UserModel _userFromFirebase(FirebaseUser user) {
+  //Create user object based on the given User
+  UserModel _userFromFirebase(User? user) {
     if (user == null) {
-      return null;
+      return UserModel(displayName: 'Null', uid: 'null');
     }
 
     return UserModel(
@@ -52,11 +52,11 @@ class AuthProvider extends ChangeNotifier {
         email: user.email,
         displayName: user.displayName,
         phoneNumber: user.phoneNumber,
-        photoUrl: user.photoUrl);
+        photoUrl: user.photoURL);
   }
 
   //Method to detect live auth changes such as user sign in and sign out
-  Future<void> onAuthStateChanged(FirebaseUser firebaseUser) async {
+  Future<void> onAuthStateChanged(User? firebaseUser) async {
     if (firebaseUser == null) {
       _status = Status.Unauthenticated;
     } else {
@@ -72,15 +72,15 @@ class AuthProvider extends ChangeNotifier {
     try {
       _status = Status.Registering;
       notifyListeners();
-      final AuthResult result = await _auth.createUserWithEmailAndPassword(
+      final UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
 
       return _userFromFirebase(result.user);
     } catch (e) {
-      print("Error on the new user registration = " +e.toString());
+      print("Error on the new user registration = " + e.toString());
       _status = Status.Unauthenticated;
       notifyListeners();
-      return null;
+      return UserModel(displayName: 'Null', uid: 'null');
     }
   }
 
@@ -92,7 +92,7 @@ class AuthProvider extends ChangeNotifier {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return true;
     } catch (e) {
-      print("Error on the sign in = " +e.toString());
+      print("Error on the sign in = " + e.toString());
       _status = Status.Unauthenticated;
       notifyListeners();
       return false;

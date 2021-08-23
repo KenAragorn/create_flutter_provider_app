@@ -11,8 +11,8 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController _emailController;
-  TextEditingController _passwordController;
+  late TextEditingController _emailController;
+  late TextEditingController _passwordController;
   final _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -68,14 +68,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextFormField(
                   controller: _emailController,
                   style: Theme.of(context).textTheme.body1,
-                  validator: (value) =>
-                      value.isEmpty ? AppLocalizations.of(context).translate("loginTxtErrorEmail") : null,
+                  validator: (value) => value!.isEmpty
+                      ? AppLocalizations.of(context)
+                          .translate("loginTxtErrorEmail")
+                      : null,
                   decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.email,
                         color: Theme.of(context).iconTheme.color,
                       ),
-                      labelText: AppLocalizations.of(context).translate("loginTxtEmail"),
+                      labelText: AppLocalizations.of(context)
+                          .translate("loginTxtEmail"),
                       border: OutlineInputBorder()),
                 ),
                 Padding(
@@ -85,15 +88,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     maxLength: 12,
                     controller: _passwordController,
                     style: Theme.of(context).textTheme.body1,
-                    validator: (value) => value.length < 6
-                        ? AppLocalizations.of(context).translate("loginTxtErrorPassword")
+                    validator: (value) => value!.length < 6
+                        ? AppLocalizations.of(context)
+                            .translate("loginTxtErrorPassword")
                         : null,
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.lock,
                           color: Theme.of(context).iconTheme.color,
                         ),
-                        labelText: AppLocalizations.of(context).translate("loginTxtPassword"),
+                        labelText: AppLocalizations.of(context)
+                            .translate("loginTxtPassword"),
                         border: OutlineInputBorder()),
                   ),
                 ),
@@ -103,11 +108,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       )
                     : RaisedButton(
                         child: Text(
-                          AppLocalizations.of(context).translate("loginBtnSignUp"),
+                          AppLocalizations.of(context)
+                              .translate("loginBtnSignUp"),
                           style: Theme.of(context).textTheme.button,
                         ),
                         onPressed: () async {
-                          if (_formKey.currentState.validate()) {
+                          if (_formKey.currentState!.validate()) {
                             FocusScope.of(context)
                                 .unfocus(); //to hide the keyboard - if any
 
@@ -117,8 +123,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     _passwordController.text);
 
                             if (userModel == null) {
-                              _scaffoldKey.currentState.showSnackBar(SnackBar(
-                                content: Text(AppLocalizations.of(context).translate("loginTxtErrorSignIn")),
+                              _scaffoldKey.currentState!.showSnackBar(SnackBar(
+                                content: Text(AppLocalizations.of(context)
+                                    .translate("loginTxtErrorSignIn")),
                               ));
                             }
                           }
@@ -131,7 +138,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: const EdgeInsets.only(top: 48),
                         child: Center(
                             child: Text(
-                              AppLocalizations.of(context).translate("loginTxtHaveAccount"),
+                          AppLocalizations.of(context)
+                              .translate("loginTxtHaveAccount"),
                           style: Theme.of(context).textTheme.button,
                         )),
                       ),
@@ -140,7 +148,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: null,
                       )
                     : FlatButton(
-                        child: Text(AppLocalizations.of(context).translate("loginBtnLinkSignIn")),
+                        child: Text(AppLocalizations.of(context)
+                            .translate("loginBtnLinkSignIn")),
                         textColor: Theme.of(context).iconTheme.color,
                         onPressed: () {
                           Navigator.of(context)

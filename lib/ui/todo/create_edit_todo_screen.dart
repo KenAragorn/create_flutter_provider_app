@@ -10,12 +10,12 @@ class CreateEditTodoScreen extends StatefulWidget {
 }
 
 class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
-  TextEditingController _taskController;
-  TextEditingController _extraNoteController;
+  late TextEditingController _taskController;
+  late TextEditingController _extraNoteController;
   final _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  TodoModel _todo;
-  bool _checkboxCompleted;
+  TodoModel? _todo;
+  late bool _checkboxCompleted;
 
   @override
   void initState() {
@@ -25,17 +25,17 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final TodoModel _todoModel = ModalRoute.of(context).settings.arguments;
+    final TodoModel? _todoModel = ModalRoute.of(context)?.settings.arguments as TodoModel?;
     if (_todoModel != null) {
       _todo = _todoModel;
     }
 
     _taskController =
-        TextEditingController(text: _todo != null ? _todo.task : "");
+        TextEditingController(text: _todo?.task ?? "");
     _extraNoteController =
-        TextEditingController(text: _todo != null ? _todo.extraNote : "");
+        TextEditingController(text: _todo?.extraNote ?? "");
 
-    _checkboxCompleted = _todo != null ? _todo.complete : false;
+    _checkboxCompleted = _todo?.complete ?? false;
   }
 
   @override
@@ -50,21 +50,21 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
           },
         ),
         title: Text(_todo != null
-            ? AppLocalizations.of(context).translate("todosCreateEditAppBarTitleEditTxt")
-            : AppLocalizations.of(context).translate("todosCreateEditAppBarTitleNewTxt")),
+            ? AppLocalizations.of(context)
+                .translate("todosCreateEditAppBarTitleEditTxt")
+            : AppLocalizations.of(context)
+                .translate("todosCreateEditAppBarTitleNewTxt")),
         actions: <Widget>[
           FlatButton(
               onPressed: () {
-                if (_formKey.currentState.validate()) {
+                if (_formKey.currentState!.validate()) {
                   FocusScope.of(context).unfocus();
 
                   final firestoreDatabase =
                       Provider.of<FirestoreDatabase>(context, listen: false);
 
                   firestoreDatabase.setTodo(TodoModel(
-                      id: _todo != null
-                          ? _todo.id
-                          : documentIdFromCurrentDate(),
+                      id: _todo?.id ?? documentIdFromCurrentDate(),
                       task: _taskController.text,
                       extraNote: _extraNoteController.text.length > 0
                           ? _extraNoteController.text
@@ -103,14 +103,16 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
               TextFormField(
                 controller: _taskController,
                 style: Theme.of(context).textTheme.body1,
-                validator: (value) => value.isEmpty
-                    ? AppLocalizations.of(context).translate("todosCreateEditTaskNameValidatorMsg")
+                validator: (value) => value!.isEmpty
+                    ? AppLocalizations.of(context)
+                        .translate("todosCreateEditTaskNameValidatorMsg")
                     : null,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Theme.of(context).iconTheme.color, width: 2)),
-                  labelText: AppLocalizations.of(context).translate("todosCreateEditTaskNameTxt"),
+                          color: Theme.of(context).iconTheme.color!, width: 2)),
+                  labelText: AppLocalizations.of(context)
+                      .translate("todosCreateEditTaskNameTxt"),
                 ),
               ),
               Padding(
@@ -122,9 +124,10 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Theme.of(context).iconTheme.color,
+                            color: Theme.of(context).iconTheme.color!,
                             width: 2)),
-                    labelText: AppLocalizations.of(context).translate("todosCreateEditNotesTxt"),
+                    labelText: AppLocalizations.of(context)
+                        .translate("todosCreateEditNotesTxt"),
                     alignLabelWithHint: true,
                     contentPadding: new EdgeInsets.symmetric(
                         vertical: 10.0, horizontal: 10.0),
@@ -136,12 +139,13 @@ class _CreateEditTodoScreenState extends State<CreateEditTodoScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(AppLocalizations.of(context).translate("todosCreateEditCompletedTxt")),
+                    Text(AppLocalizations.of(context)
+                        .translate("todosCreateEditCompletedTxt")),
                     Checkbox(
                         value: _checkboxCompleted,
                         onChanged: (value) {
                           setState(() {
-                            _checkboxCompleted = value;
+                            _checkboxCompleted = value!;
                           });
                         })
                   ],
