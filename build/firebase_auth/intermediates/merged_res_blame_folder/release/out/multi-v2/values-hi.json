@@ -1,0 +1,150 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\firebase_auth\\intermediates\\res\\merged\\release\\values-hi\\values-hi.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\98af8d6515fcfbd11fd046d7fc792100\\transformed\\core-1.6.0\\res\\values-hi\\values-hi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "24",
+                        "startColumns": "4",
+                        "startOffsets": "3189",
+                        "endColumns": "100",
+                        "endOffsets": "3285"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\80c9ece00a64258fa92f7f803f81f7fa\\transformed\\browser-1.4.0\\res\\values-hi\\values-hi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,161,263,375",
+                        "endColumns": "105,101,111,102",
+                        "endOffsets": "156,258,370,473"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2766,2872,2974,3086",
+                        "endColumns": "105,101,111,102",
+                        "endOffsets": "2867,2969,3081,3184"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\856b33b0af2dc11343a58cd75db77175\\transformed\\jetified-play-services-base-17.1.0\\res\\values-hi\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,351,543,667,777,987,1115,1253,1390,1606,1713,1910,2038,2238,2417,2506,2599",
+                        "endColumns": "105,191,123,109,209,127,137,136,215,106,196,127,199,178,88,92,112",
+                        "endOffsets": "350,542,666,776,986,1114,1252,1389,1605,1712,1909,2037,2237,2416,2505,2598,2711"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,215,407,535,649,859,991,1133,1420,1636,1747,1944,2076,2276,2459,2552,2649",
+                        "endColumns": "109,191,127,113,209,131,141,140,215,110,196,131,199,182,92,96,116",
+                        "endOffsets": "210,402,530,644,854,986,1128,1269,1631,1742,1939,2071,2271,2454,2547,2644,2761"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\7d21ab11e2704622b0cc21d0a14edb17\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-hi\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "141",
+                        "endOffsets": "336"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1274",
+                        "endColumns": "145",
+                        "endOffsets": "1415"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\firebase_auth\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-hi\\values-hi.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\98af8d6515fcfbd11fd046d7fc792100\\transformed\\core-1.6.0\\res\\values-hi\\values-hi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "24",
+                        "startColumns": "4",
+                        "startOffsets": "3189",
+                        "endColumns": "100",
+                        "endOffsets": "3285"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\80c9ece00a64258fa92f7f803f81f7fa\\transformed\\browser-1.4.0\\res\\values-hi\\values-hi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,161,263,375",
+                        "endColumns": "105,101,111,102",
+                        "endOffsets": "156,258,370,473"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2766,2872,2974,3086",
+                        "endColumns": "105,101,111,102",
+                        "endOffsets": "2867,2969,3081,3184"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\856b33b0af2dc11343a58cd75db77175\\transformed\\jetified-play-services-base-17.1.0\\res\\values-hi\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,351,543,667,777,987,1115,1253,1390,1606,1713,1910,2038,2238,2417,2506,2599",
+                        "endColumns": "105,191,123,109,209,127,137,136,215,106,196,127,199,178,88,92,112",
+                        "endOffsets": "350,542,666,776,986,1114,1252,1389,1605,1712,1909,2037,2237,2416,2505,2598,2711"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,215,407,535,649,859,991,1133,1420,1636,1747,1944,2076,2276,2459,2552,2649",
+                        "endColumns": "109,191,127,113,209,131,141,140,215,110,196,131,199,182,92,96,116",
+                        "endOffsets": "210,402,530,644,854,986,1128,1269,1631,1742,1939,2071,2271,2454,2547,2644,2761"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\7d21ab11e2704622b0cc21d0a14edb17\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-hi\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "141",
+                        "endOffsets": "336"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1274",
+                        "endColumns": "145",
+                        "endOffsets": "1415"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,150 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\firebase_auth\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-gu\\values-gu.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\856b33b0af2dc11343a58cd75db77175\\transformed\\jetified-play-services-base-17.1.0\\res\\values-gu\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,351,549,672,782,979,1099,1236,1361,1568,1674,1869,1992,2194,2370,2457,2549",
+                        "endColumns": "105,197,122,109,196,119,136,124,206,105,194,122,201,175,86,91,106",
+                        "endOffsets": "350,548,671,781,978,1098,1235,1360,1567,1673,1868,1991,2193,2369,2456,2548,2655"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,215,413,540,654,851,975,1116,1392,1599,1709,1904,2031,2233,2413,2504,2600",
+                        "endColumns": "109,197,126,113,196,123,140,128,206,109,194,126,201,179,90,95,110",
+                        "endOffsets": "210,408,535,649,846,970,1111,1240,1594,1704,1899,2026,2228,2408,2499,2595,2706"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\7d21ab11e2704622b0cc21d0a14edb17\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-gu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "142",
+                        "endOffsets": "337"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1245",
+                        "endColumns": "146",
+                        "endOffsets": "1387"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\98af8d6515fcfbd11fd046d7fc792100\\transformed\\core-1.6.0\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "24",
+                        "startColumns": "4",
+                        "startOffsets": "3123",
+                        "endColumns": "100",
+                        "endOffsets": "3219"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\80c9ece00a64258fa92f7f803f81f7fa\\transformed\\browser-1.4.0\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,156,257,366",
+                        "endColumns": "100,100,108,100",
+                        "endOffsets": "151,252,361,462"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2711,2812,2913,3022",
+                        "endColumns": "100,100,108,100",
+                        "endOffsets": "2807,2908,3017,3118"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\firebase_auth\\intermediates\\res\\merged\\release\\values-gu\\values-gu.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\856b33b0af2dc11343a58cd75db77175\\transformed\\jetified-play-services-base-17.1.0\\res\\values-gu\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,351,549,672,782,979,1099,1236,1361,1568,1674,1869,1992,2194,2370,2457,2549",
+                        "endColumns": "105,197,122,109,196,119,136,124,206,105,194,122,201,175,86,91,106",
+                        "endOffsets": "350,548,671,781,978,1098,1235,1360,1567,1673,1868,1991,2193,2369,2456,2548,2655"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,215,413,540,654,851,975,1116,1392,1599,1709,1904,2031,2233,2413,2504,2600",
+                        "endColumns": "109,197,126,113,196,123,140,128,206,109,194,126,201,179,90,95,110",
+                        "endOffsets": "210,408,535,649,846,970,1111,1240,1594,1704,1899,2026,2228,2408,2499,2595,2706"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\7d21ab11e2704622b0cc21d0a14edb17\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-gu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "142",
+                        "endOffsets": "337"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1245",
+                        "endColumns": "146",
+                        "endOffsets": "1387"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\98af8d6515fcfbd11fd046d7fc792100\\transformed\\core-1.6.0\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "24",
+                        "startColumns": "4",
+                        "startOffsets": "3123",
+                        "endColumns": "100",
+                        "endOffsets": "3219"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jacs5\\.gradle\\caches\\transforms-3\\80c9ece00a64258fa92f7f803f81f7fa\\transformed\\browser-1.4.0\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,156,257,366",
+                        "endColumns": "100,100,108,100",
+                        "endOffsets": "151,252,361,462"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2711,2812,2913,3022",
+                        "endColumns": "100,100,108,100",
+                        "endOffsets": "2807,2908,3017,3118"
+                    }
+                }
+            ]
+        }
+    ]
+}

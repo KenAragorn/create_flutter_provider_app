@@ -1,0 +1,35 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:1:1-11:12
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:1:1-11:12
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:1:1-11:12
+	package
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:2:3-53
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:4:3-65
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:4:20-62
+application
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:5:3-10:17
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:6:5-9:15
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:6:14-85
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.dynamiclinks.FlutterFirebaseAppRegistrar
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:7:7-8:86
+	android:value
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:8:18-83
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:7:18-132
+uses-sdk
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml

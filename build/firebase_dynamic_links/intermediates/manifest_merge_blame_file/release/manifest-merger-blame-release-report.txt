@@ -1,0 +1,26 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.flutter.plugins.firebase.dynamiclinks" >
+4
+5    <uses-sdk android:minSdkVersion="19" />
+5-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml
+6
+7    <uses-permission android:name="android.permission.INTERNET" />
+7-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:4:3-65
+7-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:4:20-62
+8
+9    <application>
+9-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:5:3-10:17
+10        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+10-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:6:5-9:15
+10-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:6:14-85
+11            <meta-data
+11-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:7:7-8:86
+12                android:name="com.google.firebase.components:io.flutter.plugins.firebase.dynamiclinks.FlutterFirebaseAppRegistrar"
+12-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:7:18-132
+13                android:value="com.google.firebase.components.ComponentRegistrar" />
+13-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_dynamic_links-4.3.11\android\src\main\AndroidManifest.xml:8:18-83
+14        </service>
+15    </application>
+16
+17</manifest>

@@ -1,0 +1,91 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:1:1-37:12
+	package
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:2:3-50
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:3:3-64
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:3:20-62
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:4:3-65
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:4:20-63
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:5:3-76
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:5:20-74
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:7:3-74
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:7:20-72
+application
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:8:3-36:17
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:9:5-12:33
+	android:exported
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:12:7-31
+	android:permission
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:11:7-63
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:10:7-64
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:13:5-18:15
+	android:exported
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:14:7-31
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:13:14-61
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:15:7-17:23
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:16:9-69
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:16:17-67
+receiver#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:19:5-26:16
+	android:exported
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:21:7-30
+	android:permission
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:22:7-67
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:20:7-55
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:23:7-25:23
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:24:9-73
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:24:17-70
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:27:5-30:15
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:27:14-85
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:28:7-29:86
+	android:value
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:29:18-83
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:28:18-129
+provider#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider
+ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:31:5-35:32
+	android:authorities
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:33:7-82
+	android:exported
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:34:7-31
+	android:initOrder
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:35:7-29
+	android:name
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:32:7-59
+uses-sdk
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml

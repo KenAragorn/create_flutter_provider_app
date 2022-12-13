@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\app\\intermediates\\res\\merged\\prod\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\android\\app\\src\\prod\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\app\\intermediates\\res\\merged\\prod\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\android\\app\\src\\prod\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\app\\intermediates\\res\\merged\\prod\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\android\\app\\src\\prod\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\app\\intermediates\\res\\merged\\prod\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\android\\app\\src\\prod\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\app\\intermediates\\res\\merged\\prod\\debug\\drawable_launch_background.xml.flat",
+        "source": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\android\\app\\src\\main\\res\\drawable\\launch_background.xml"
+    },
+    {
+        "merged": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\app\\intermediates\\res\\merged\\prod\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Prog\\StudioProjects\\create_flutter_provider2022\\android\\app\\src\\prod\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    }
+]

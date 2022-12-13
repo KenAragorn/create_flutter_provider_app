@@ -1,0 +1,85 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.flutter.plugins.firebase.messaging" >
+4
+5    <uses-sdk android:minSdkVersion="19" />
+5-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml
+6
+7    <uses-permission android:name="android.permission.INTERNET" />
+7-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:3:3-64
+7-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:3:20-62
+8    <uses-permission android:name="android.permission.WAKE_LOCK" />
+8-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:4:3-65
+8-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:4:20-63
+9    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+9-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:5:3-76
+9-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:5:20-74
+10    <!-- Permissions options for the `notification` group -->
+11    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+11-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:7:3-74
+11-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:7:20-72
+12
+13    <application>
+13-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:8:3-36:17
+14        <service
+14-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:9:5-12:33
+15            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+15-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:10:7-64
+16            android:exported="false"
+16-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:12:7-31
+17            android:permission="android.permission.BIND_JOB_SERVICE" />
+17-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:11:7-63
+18        <service
+18-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:13:5-18:15
+19            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+19-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:13:14-61
+20            android:exported="false" >
+20-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:14:7-31
+21            <intent-filter>
+21-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:15:7-17:23
+22                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+22-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:16:9-69
+22-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:16:17-67
+23            </intent-filter>
+24        </service>
+25
+26        <receiver
+26-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:19:5-26:16
+27            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+27-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:20:7-55
+28            android:exported="true"
+28-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:21:7-30
+29            android:permission="com.google.android.c2dm.permission.SEND" >
+29-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:22:7-67
+30            <intent-filter>
+30-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:23:7-25:23
+31                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+31-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:24:9-73
+31-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:24:17-70
+32            </intent-filter>
+33        </receiver>
+34
+35        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+35-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:27:5-30:15
+35-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:27:14-85
+36            <meta-data
+36-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:28:7-29:86
+37                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+37-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:28:18-129
+38                android:value="com.google.firebase.components.ComponentRegistrar" />
+38-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:29:18-83
+39        </service>
+40
+41        <provider
+41-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:31:5-35:32
+42            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+42-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:32:7-59
+43            android:authorities="${applicationId}.flutterfirebasemessaginginitprovider"
+43-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:33:7-82
+44            android:exported="false"
+44-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:34:7-31
+45            android:initOrder="99" /> <!-- Firebase = 100, using 99 to run after Firebase initialises (highest first) -->
+45-->C:\Users\jacs5\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-13.1.0\android\src\main\AndroidManifest.xml:35:7-29
+46    </application>
+47
+48</manifest>

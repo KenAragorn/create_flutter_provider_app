@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"አንቃ"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Google Play አገልግሎቶችን ካላነቁ በስተቀር <ns1:g id="APP_NAME">%1$s</ns1:g> አይሰራም።"</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play አገልግሎቶችን ያንቁ"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"ጫን"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ በመሣሪያዎ ላይ የሉም።"</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Google Play አገልግሎቶችን ያግኙ"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"Google Play አገልግሎቶች ተገኝነት"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"የGoogle Play አገልግሎቶች ስህተት"</string>
+    <string name="common_google_play_services_unknown_issue">%1$s በGoogle Play አገልግሎቶች ላይ ችግሮች እያጋጠሙት ነው። እባክዎ እንደገና ይሞክሩ።</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ያለGoogle Play አገልግሎቶች አይሄድም፣ እነዚህም በመሣሪያዎ አይደገፉም።"</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"ያዘምኑ"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"Google Play አገልግሎቶችን ካላዘመኑ በስተቀር ድረስ <ns1:g id="APP_NAME">%1$s</ns1:g> አይሰራም።"</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Google Play አገልግሎቶችን ያዘምኑ"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ በአሁኑ ጊዜ በመዘመን ላይ ናቸው።"</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"አዲስ የGoogle Play አገልግሎቶች ስሪት ያስፈልጋል። በቅርቡ እራሱን ያዘምናል።"</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"ስልክ ላይ ክፈት"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"ግባ"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"በGoogle ይግቡ"</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"አገናኝ ወደ ቅንጥብ ሰሌዳ ተቀድቷል"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"አገናኝ ቅዳ"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"በአሳሽ ውስጥ ክፈት"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"አገናኝ አጋራ"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

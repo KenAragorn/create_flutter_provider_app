@@ -1,0 +1,4 @@
+#Fri Nov 04 10:58:49 CET 2022
+base.0=D\:\\Prog\\StudioProjects\\create_flutter_provider2022\\build\\app\\intermediates\\dex\\prodRelease\\minifyProdReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
