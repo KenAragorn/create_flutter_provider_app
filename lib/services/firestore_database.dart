@@ -20,24 +20,39 @@ setAllTodoComplete is require to change all todos item to have the complete stat
 changed to true.
 
  */
-class FirestoreDatabase {
+
+abstract class IFirestoreDatabase {
+  final _firestoreService = FirestoreService.instance;
+  
+  Future<void> setTodo(TodoModel todo);
+  Future<void> deleteTodo(TodoModel todo);
+  Stream<TodoModel> todoStream({required String todoId});
+  Stream<List<TodoModel>> todosStream();
+  Future<void> setAllTodoComplete();
+  Future<void> deleteAllTodoWithComplete();
+  
+  
+}
+
+class FirestoreDatabase extends IFirestoreDatabase {
   FirestoreDatabase({required this.uid}) : assert(uid != null);
   final String uid;
 
-  final _firestoreService = FirestoreService.instance;
-
   //Method to create/update todoModel
+  @override
   Future<void> setTodo(TodoModel todo) async => await _firestoreService.set(
         path: FirestorePath.todo(uid, todo.id),
         data: todo.toMap(),
       );
 
   //Method to delete todoModel entry
+  @override
   Future<void> deleteTodo(TodoModel todo) async {
     await _firestoreService.deleteData(path: FirestorePath.todo(uid, todo.id));
   }
 
   //Method to retrieve todoModel object based on the given todoId
+  @override
   Stream<TodoModel> todoStream({required String todoId}) =>
       _firestoreService.documentStream(
         path: FirestorePath.todo(uid, todoId),
@@ -45,12 +60,14 @@ class FirestoreDatabase {
       );
 
   //Method to retrieve all todos item from the same user based on uid
+  @override
   Stream<List<TodoModel>> todosStream() => _firestoreService.collectionStream(
         path: FirestorePath.todos(uid),
         builder: (data, documentId) => TodoModel.fromMap(data, documentId),
       );
 
   //Method to mark all todoModel to be complete
+  @override
   Future<void> setAllTodoComplete() async {
     final batchUpdate = FirebaseFirestore.instance.batch();
 
@@ -63,7 +80,8 @@ class FirestoreDatabase {
     }
     await batchUpdate.commit();
   }
-
+  
+  @override
   Future<void> deleteAllTodoWithComplete() async {
     final batchDelete = FirebaseFirestore.instance.batch();
 
