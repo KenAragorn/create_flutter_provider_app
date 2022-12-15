@@ -18,17 +18,7 @@ void main() {
       * such as user uid/email.
        */
       MultiProvider(
-        providers: [
-          Provider<Flavor>.value(value: Flavor.dev),
-          ChangeNotifierProvider<ThemeProvider>(
-            create: (context) => ThemeProvider(),
-          ),
-          ChangeNotifierProvider<AuthProvider>(
-            create: (context) => AuthProvider(),
-          ),
-          ChangeNotifierProvider<LanguageProvider>(
-            create: (context) => LanguageProvider(),
-          ),
+        providers: DependencyInjector.instance.providers,
         ],
         child: MyApp(
           databaseBuilder: (_, uid) => FirestoreDatabase(uid: uid),
@@ -38,3 +28,25 @@ void main() {
     );
   });
 }
+
+class DependencyInjector {
+  static DependencyInjector? _instance;
+
+  static DependencyInjector get instance {
+    _instance ??= DependencyInjector._init();
+    return _instance!;
+  }
+  
+  DependencyInjector._init() {
+  }
+
+
+ List<ChangeNotifierProvider<ChangeNotifier>> get providers => [
+   Provider<Flavor>.value(value: Flavor.dev),
+        ChangeNotifierProvider<ThemeProvider>(
+            create: (context) => ThemeProvider()),
+        ChangeNotifierProvider<AuthProvider>(
+            create: (context) => AuthProvider()),
+        ChangeNotifierProvider<LanguageProvider>(
+            create: (context) => LanguageProvider()),
+      ];
