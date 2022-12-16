@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:noteapp/models/todo_model.dart';
-import 'package:noteapp/services/firestore_path.dart';
+import 'package:create_flutter_provider_app/models/todo_model.dart';
+import 'package:create_flutter_provider_app/services/firestore_path.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:noteapp/services/firestore_service.dart';
+import 'package:create_flutter_provider_app/services/firestore_service.dart';
 
 String documentIdFromCurrentDate() => DateTime.now().toIso8601String();
 
@@ -18,6 +18,10 @@ For cases where you need to have a special method such as bulk update specifical
 on a field, then is ok to use custom code and write it here. For example,
 setAllTodoComplete is require to change all todos item to have the complete status
 changed to true.
+
+2022: If in future, lets say we added a new section and a new document for user
+to store images, I can create a separate collection and new methods in 
+FirestoreDatabase without touching the FirestoreService.
 
  */
 class FirestoreDatabase {

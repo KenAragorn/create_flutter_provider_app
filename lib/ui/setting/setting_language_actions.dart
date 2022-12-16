@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/app_localizations.dart';
-import 'package:noteapp/providers/language_provider.dart';
+import 'package:create_flutter_provider_app/app_localizations.dart';
+import 'package:create_flutter_provider_app/providers/language_provider.dart';
 import 'package:provider/provider.dart';
 
-enum LanguagesActions { english, chinese }
+enum LanguagesActions { english, chinese, spanish }
 
 class SettingLanguageActions extends StatelessWidget {
   @override
@@ -20,6 +20,9 @@ class SettingLanguageActions extends StatelessWidget {
             break;
           case LanguagesActions.chinese:
             languageProvider.updateLanguage("zh");
+            break;
+          case LanguagesActions.spanish:
+            languageProvider.updateLanguage("es");
         }
       },
       itemBuilder: (BuildContext context) => <PopupMenuEntry<LanguagesActions>>[
@@ -34,6 +37,12 @@ class SettingLanguageActions extends StatelessWidget {
           enabled: _appCurrentLocale == Locale("zh") ? false : true,
           child: Text(AppLocalizations.of(context)
               .translate("settingPopUpToggleChinese")),
+        ),
+        PopupMenuItem<LanguagesActions>(
+          value: LanguagesActions.spanish,
+          enabled: _appCurrentLocale == Locale("es") ? false : true,
+          child: Text(AppLocalizations.of(context)
+              .translate("settingPopUpToggleSpanish")),
         ),
       ],
     );

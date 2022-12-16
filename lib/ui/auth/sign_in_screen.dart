@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/app_localizations.dart';
-import 'package:noteapp/flavor.dart';
-import 'package:noteapp/providers/auth_provider.dart';
-import 'package:noteapp/routes.dart';
+import 'package:create_flutter_provider_app/app_localizations.dart';
+import 'package:create_flutter_provider_app/flavor.dart';
+import 'package:create_flutter_provider_app/providers/auth_provider.dart';
+import 'package:create_flutter_provider_app/routes.dart';
 import 'package:provider/provider.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
+
   @override
   _SignInScreenState createState() => _SignInScreenState();
 }
@@ -59,35 +61,36 @@ class _SignInScreenState extends State<SignInScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: FlutterLogo(
                     size: 128,
-                  ),
+                  ), // Centered FlutterLogo
                 ),
+                // email -----------------------------------
                 TextFormField(
                   controller: _emailController,
-                  style: Theme.of(context).textTheme.body1,
+                  //style: Theme.of(context).textTheme.bodyText1,
                   validator: (value) => value!.isEmpty
                       ? AppLocalizations.of(context)
                           .translate("loginTxtErrorEmail")
                       : null,
                   decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.email,
-                        color: Theme.of(context).iconTheme.color,
-                      ),
+                      prefixIcon: Icon(Icons.email
+                          //color: Theme.of(context).iconTheme.color,
+                          ),
                       labelText: AppLocalizations.of(context)
                           .translate("loginTxtEmail"),
-                      border: OutlineInputBorder()),
+                      border: const OutlineInputBorder()),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
+//password ------------------------------
                   child: TextFormField(
                     obscureText: true,
                     maxLength: 12,
                     controller: _passwordController,
-                    style: Theme.of(context).textTheme.body1,
+                    //style: Theme.of(context).textTheme.bodyText1,
                     validator: (value) => value!.length < 6
                         ? AppLocalizations.of(context)
                             .translate("loginTxtErrorPassword")
@@ -99,18 +102,18 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                         labelText: AppLocalizations.of(context)
                             .translate("loginTxtPassword"),
-                        border: OutlineInputBorder()),
+                        border: const OutlineInputBorder()),
                   ),
                 ),
                 authProvider.status == Status.Authenticating
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
-                    : RaisedButton(
+                    : ElevatedButton(
                         child: Text(
                           AppLocalizations.of(context)
                               .translate("loginBtnSignIn"),
-                          style: Theme.of(context).textTheme.button,
+                          //style: Theme.of(context).textTheme.button,
                         ),
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
@@ -123,7 +126,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                     _passwordController.text);
 
                             if (!status) {
-                              _scaffoldKey.currentState!.showSnackBar(SnackBar(
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                //_scaffoldKey.currentState!.showSnackBar(SnackBar(
                                 content: Text(AppLocalizations.of(context)
                                     .translate("loginTxtErrorSignIn")),
                               ));
@@ -133,27 +138,70 @@ class _SignInScreenState extends State<SignInScreen> {
                             }
                           }
                         }),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+//--- Google button-------------------------
+                  authProvider.status == Status.Authenticating
+                      ? const Center(
+                          child: null,
+                        )
+                      //                       : SizedBox(
+                      //                       height:70,
+                      //                     child:
+                      : ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            maximumSize: const Size(220, 100),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0)),
+                            padding: EdgeInsets.zero,
+                          ),
+                          clipBehavior: Clip.none,
+                          child: Image.asset('assets/images/googlelogin.png',
+                              fit: BoxFit.fill),
+                          onPressed: () async {
+                            bool status =
+                                await authProvider.signInWithGoogle(context);
+                            if (!status) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                //_scaffoldKey.currentState!.showSnackBar(SnackBar(
+                                content: Text(AppLocalizations.of(context)
+                                    .translate("loginTxtErrorGoogleSignIn")),
+                              ));
+                            } else {
+                              if (mounted) {
+                                Navigator.of(context)
+                                    .pushReplacementNamed(Routes.home);
+                              } else {
+                                Navigator.pop;
+                              }
+                            }
+                          }),
+                ]),
+                const SizedBox(
+                  height: 40,
+                ),
                 authProvider.status == Status.Authenticating
-                    ? Center(
+                    ? const Center(
                         child: null,
                       )
                     : Padding(
-                        padding: const EdgeInsets.only(top: 48),
+                        padding: const EdgeInsets.only(top: 8),
                         child: Center(
                             child: Text(
                           AppLocalizations.of(context)
                               .translate("loginTxtDontHaveAccount"),
-                          style: Theme.of(context).textTheme.button,
+                          //style: Theme.of(context).textTheme.button,
                         )),
                       ),
                 authProvider.status == Status.Authenticating
-                    ? Center(
+                    ? const Center(
                         child: null,
                       )
-                    : FlatButton(
+                    : TextButton(
                         child: Text(AppLocalizations.of(context)
                             .translate("loginBtnLinkCreateAccount")),
-                        textColor: Theme.of(context).iconTheme.color,
+                        style: TextButton.styleFrom(
+                            foregroundColor: Theme.of(context).iconTheme.color),
                         onPressed: () {
                           Navigator.of(context)
                               .pushReplacementNamed(Routes.register);
@@ -163,12 +211,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    SizedBox(
-                      height: 70,
-                    ),
+                    authProvider.status == Status.Authenticating
+                        ? const Center(
+                            child: null,
+                          )
+                        : const SizedBox(
+                            height: 70,
+                          ),
                     Text(
                       Provider.of<Flavor>(context).toString(),
-                      style: Theme.of(context).textTheme.body2,
+                      //style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ],
                 )),

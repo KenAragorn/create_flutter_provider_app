@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/app_localizations.dart';
-import 'package:noteapp/models/todo_model.dart';
-import 'package:noteapp/models/user_model.dart';
-import 'package:noteapp/providers/auth_provider.dart';
-import 'package:noteapp/routes.dart';
-import 'package:noteapp/services/firestore_database.dart';
-import 'package:noteapp/ui/todo/empty_content.dart';
-import 'package:noteapp/ui/todo/todos_extra_actions.dart';
+import 'package:create_flutter_provider_app/app_localizations.dart';
+import 'package:create_flutter_provider_app/models/todo_model.dart';
+import 'package:create_flutter_provider_app/models/user_model.dart';
+import 'package:create_flutter_provider_app/providers/auth_provider.dart';
+import 'package:create_flutter_provider_app/routes.dart';
+import 'package:create_flutter_provider_app/services/firestore_database.dart';
+import 'package:create_flutter_provider_app/ui/todo/empty_content.dart';
+import 'package:create_flutter_provider_app/ui/todo/todos_extra_actions.dart';
 import 'package:provider/provider.dart';
 
 class TodosScreen extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  TodosScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -93,8 +95,9 @@ class TodosScreen extends StatelessWidget {
                     key: Key(todos[index].id),
                     onDismissed: (direction) {
                       firestoreDatabase.deleteTodo(todos[index]);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      //_scaffoldKey.currentState!.showSnackBar(SnackBar(
 
-                      _scaffoldKey.currentState!.showSnackBar(SnackBar(
                         backgroundColor: Theme.of(context).appBarTheme.color,
                         content: Text(
                           AppLocalizations.of(context)
@@ -139,7 +142,7 @@ class TodosScreen extends StatelessWidget {
               );
             } else {
               return EmptyContentWidget(
-                title: AppLocalizations.of(context)
+                subtitle1: AppLocalizations.of(context)
                     .translate("todosEmptyTopMsgDefaultTxt"),
                 message: AppLocalizations.of(context)
                     .translate("todosEmptyBottomDefaultMsgTxt"),
@@ -148,7 +151,7 @@ class TodosScreen extends StatelessWidget {
             }
           } else if (snapshot.hasError) {
             return EmptyContentWidget(
-              title:
+              subtitle1:
                   AppLocalizations.of(context).translate("todosErrorTopMsgTxt"),
               message: AppLocalizations.of(context)
                   .translate("todosErrorBottomMsgTxt"),

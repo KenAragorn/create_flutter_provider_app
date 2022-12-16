@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/caches/sharedpref/shared_preference_helper.dart';
+import 'package:create_flutter_provider_app/caches/sharedpref/shared_preference_helper.dart';
 
 class ThemeProvider extends ChangeNotifier {
   // shared pref object

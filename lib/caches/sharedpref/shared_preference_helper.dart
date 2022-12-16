@@ -1,6 +1,10 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferenceHelper {
+
+  static Future<void> initSharedPrefs() async {
+    await SharedPreferences.getInstance();
+  }
   Future<SharedPreferences>? _sharedPreference;
   static const String is_dark_mode = "is_dark_mode";
   static const String language_code = "language_code";

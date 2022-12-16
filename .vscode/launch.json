@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+
+        {
+            "name": "create_flutter_provider (android debug dev)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "create_flutter_provider (android release prod)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main_prod.dart",
+
+            "args": [
+                "--flavor",
+                "prod"
+            ]
+        },
+        {
+            "name": "create_flutter_provider (web debug dev)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "preLaunchTask": "copywebdev",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "localhost",
+                "--web-port",
+                "5000"
+            ]
+        },
+        {
+            "name": "create_flutter_provider (web debug prod)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "preLaunchTask": "copywebprod",
+            "program": "lib/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod",
+                "localhost",
+                "--web-port",
+                "5000"
+            ]
+        }
+    ]
+}

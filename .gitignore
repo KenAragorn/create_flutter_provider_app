@@ -8,6 +8,12 @@
 .buildlog/
 .history
 .svn/
+*.info
+*.info.backup
+index.html
+*.lock
+google-services*.json
+key.properties
 
 # IntelliJ related
 *.iml

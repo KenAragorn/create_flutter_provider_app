@@ -326,13 +326,13 @@ For the sub folder called ‘res’, ignore it for now. We will go through that 
 
 4. Having different app name and app icon for Dev and Prod
 We want to have a different app name for our project. This is helpful as with Flavor setup, we can install both app in the same devices for testing. 
-Having app name such as NoteApp-Dev or Note-Dev or Note-Prod helps us to identify which app is for which environment – development or production.
+Having app name such as NoteApp-Dev or create_flutter_provider_app or Note-Prod helps us to identify which app is for which environment – development or production.
 The same concept and benefits if we have different app icon for each apps that are connecting to different environment. 
 For app name, create file called strings.xml and with the following content:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <string name="app_name">Note-Dev</string>
+        <string name="app_name">create_flutter_provider_app</string>
 </resources>
 
 ```

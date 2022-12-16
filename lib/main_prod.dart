@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:noteapp/flavor.dart';
-import 'package:noteapp/my_app.dart';
-import 'package:noteapp/providers/auth_provider.dart';
-import 'package:noteapp/providers/language_provider.dart';
-import 'package:noteapp/providers/theme_provider.dart';
-import 'package:noteapp/services/firestore_database.dart';
+import 'package:create_flutter_provider_app/flavor.dart';
+import 'package:create_flutter_provider_app/my_app.dart';
+import 'package:create_flutter_provider_app/providers/auth_provider.dart';
+import 'package:create_flutter_provider_app/providers/language_provider.dart';
+import 'package:create_flutter_provider_app/providers/theme_provider.dart';
+import 'package:create_flutter_provider_app/services/firestore_database.dart';
 import 'package:provider/provider.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'restart_app.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) async {
     runApp(
@@ -30,9 +36,11 @@ void main() {
             create: (context) => LanguageProvider(),
           ),
         ],
-        child: MyApp(
-          databaseBuilder: (_, uid) => FirestoreDatabase(uid: uid),
-          key: Key('SimpleFinance'),
+        child: RestartWidget(
+          child: MyApp(
+            databaseBuilder: (_, uid) => FirestoreDatabase(uid: uid),
+            key: const Key('SimpleFinance'),
+          ),
         ),
       ),
     );
