@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:noteapp/app_localizations.dart';
-import 'package:noteapp/providers/auth_provider.dart';
-import 'package:noteapp/providers/theme_provider.dart';
-import 'package:noteapp/routes.dart';
-import 'package:noteapp/ui/setting/setting_language_actions.dart';
+import 'package:create_flutter_provider_app/app_localizations.dart';
+import 'package:create_flutter_provider_app/providers/auth_provider.dart';
+import 'package:create_flutter_provider_app/providers/theme_provider.dart';
+import 'package:create_flutter_provider_app/ui/setting/setting_language_actions.dart';
 import 'package:provider/provider.dart';
+import 'package:create_flutter_provider_app/restart_app.dart';
+//import 'package:create_flutter_provider_app/constants/app_themes.dart';
 
 class SettingScreen extends StatelessWidget {
   @override
@@ -27,8 +28,8 @@ class SettingScreen extends StatelessWidget {
           subtitle: Text(AppLocalizations.of(context)
               .translate("settingThemeListSubTitle")),
           trailing: Switch(
-            activeColor: Theme.of(context).appBarTheme.color,
-            activeTrackColor: Theme.of(context).textTheme.title!.color,
+            activeColor: Theme.of(context).appBarTheme.backgroundColor,
+            activeTrackColor: Theme.of(context).textTheme.bodySmall!.color,
             value: Provider.of<ThemeProvider>(context).isDarkModeOn,
             onChanged: (booleanValue) {
               Provider.of<ThemeProvider>(context, listen: false)
@@ -48,7 +49,7 @@ class SettingScreen extends StatelessWidget {
               AppLocalizations.of(context).translate("settingLogoutListTitle")),
           subtitle: Text(AppLocalizations.of(context)
               .translate("settingLogoutListSubTitle")),
-          trailing: RaisedButton(
+          trailing: ElevatedButton(
               onPressed: () {
                 _confirmSignOut(context);
               },
@@ -84,9 +85,7 @@ class SettingScreen extends StatelessWidget {
 
                     authProvider.signOut();
 
-                    Navigator.pop(context);
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                        Routes.login, ModalRoute.withName(Routes.login));
+                    RestartWidget.restartApp(context);
                   },
                 )
               ],

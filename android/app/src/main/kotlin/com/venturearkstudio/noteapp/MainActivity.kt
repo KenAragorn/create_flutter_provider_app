@@ -1,4 +1,4 @@
-package com.venturearkstudio.noteapp
+package com.example.create_flutter_provider_app
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

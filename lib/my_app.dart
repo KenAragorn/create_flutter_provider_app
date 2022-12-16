@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/app_localizations.dart';
-import 'package:noteapp/auth_widget_builder.dart';
-import 'package:noteapp/constants/app_themes.dart';
-import 'package:noteapp/flavor.dart';
-import 'package:noteapp/models/user_model.dart';
-import 'package:noteapp/providers/auth_provider.dart';
-import 'package:noteapp/providers/language_provider.dart';
-import 'package:noteapp/providers/theme_provider.dart';
-import 'package:noteapp/routes.dart';
-import 'package:noteapp/services/firestore_database.dart';
-import 'package:noteapp/ui/auth/sign_in_screen.dart';
-import 'package:noteapp/ui/home/home.dart';
+import 'package:create_flutter_provider_app/app_localizations.dart';
+import 'package:create_flutter_provider_app/auth_widget_builder.dart';
+import 'package:create_flutter_provider_app/constants/app_themes.dart';
+import 'package:create_flutter_provider_app/flavor.dart';
+import 'package:create_flutter_provider_app/models/user_model.dart';
+import 'package:create_flutter_provider_app/providers/auth_provider.dart';
+import 'package:create_flutter_provider_app/providers/language_provider.dart';
+import 'package:create_flutter_provider_app/providers/theme_provider.dart';
+import 'package:create_flutter_provider_app/routes.dart';
+import 'package:create_flutter_provider_app/services/firestore_database.dart';
+import 'package:create_flutter_provider_app/ui/auth/sign_in_screen.dart';
+import 'package:create_flutter_provider_app/ui/home/home.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'caches/sharedpref/shared_preference_helper.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({required Key key, required this.databaseBuilder})
@@ -31,7 +33,10 @@ class MyApp extends StatelessWidget {
         //{context, data, child}
         return Consumer<LanguageProvider>(
           builder: (_, languageProviderRef, __) {
-            return AuthWidgetBuilder(
+            return 
+            FutureBuilder(
+             future: SharedPreferenceHelper.initSharedPrefs(),
+             builder: (_, __) => AuthWidgetBuilder(
               databaseBuilder: databaseBuilder,
               builder: (BuildContext context,
                   AsyncSnapshot<UserModel> userSnapshot) {
@@ -39,19 +44,23 @@ class MyApp extends StatelessWidget {
                   debugShowCheckedModeBanner: false,
                   locale: languageProviderRef.appLocale,
                   //List of all supported locales
-                  supportedLocales: [
+                  supportedLocales: const [
                     Locale('en', 'US'),
                     Locale('zh', 'CN'),
+                    Locale('es', 'ES'),
                   ],
                   //These delegates make sure that the localization data for the proper language is loaded
-                  localizationsDelegates: [
+
+                  localizationsDelegates: const [
                     //A class which loads the translations from JSON files
                     AppLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
                     //Built-in localization of basic text for Material widgets (means those default Material widget such as alert dialog icon text)
                     GlobalMaterialLocalizations.delegate,
                     //Built-in localization for text direction LTR/RTL
                     GlobalWidgetsLocalizations.delegate,
                   ],
+                  
                   //return a locale which will be used by the app
                   localeResolutionCallback: (locale, supportedLocales) {
                     //check if the current device locale is supported or not
@@ -77,19 +86,20 @@ class MyApp extends StatelessWidget {
                     builder: (_, authProviderRef, __) {
                       if (userSnapshot.connectionState ==
                           ConnectionState.active) {
-                        return userSnapshot.hasData
+                      return userSnapshot.data?.uid != 'null'
                             ? HomeScreen()
-                            : SignInScreen();
+                            : const SignInScreen();
                       }
 
-                      return Material(
+                      return const Material(
                         child: CircularProgressIndicator(),
                       );
                     },
                   ),
                 );
               },
-              key: Key('AuthWidget'),
+              key: const Key('AuthWidget'),
+            )
             );
           },
         );

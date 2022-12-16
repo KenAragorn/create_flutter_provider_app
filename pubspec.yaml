@@ -1,4 +1,4 @@
-name: noteapp
+name: create_flutter_provider_app
 description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
@@ -32,11 +32,19 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.0.0
   shared_preferences: ^2.0.6
-  firebase_auth: ^3.0.2
-  cloud_firestore: ^2.5.0
-  flutter_platform_widgets: ^1.9.5
+  firebase_auth: ^3.11.2
+  google_sign_in: ^5.4.2
+  flutter_facebook_auth: ^4.1.2
+  cloud_firestore: ^3.5.1
+  flutter_platform_widgets: ^2.0.0
+  firebase_core: ^1.24.0
+  firebase_ui_auth: ^1.0.0-dev.0
+  #solution for Error: Member not found: 'FirebaseAppPlatform.verifyExtends'
+  firebase_core_platform_interface: 4.5.1
+  firebase_messaging: ^13.0.4 # will satisfy your firebase core things that depend on ^4.5.1
 
 dev_dependencies:
+  flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
 
@@ -55,6 +63,15 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  # 
+  assets:
+    - assets/lang/en.json
+    - assets/lang/zh.json
+    - assets/lang/es.json
+    - assets/images/google.jpg
+    - assets/images/googlelogin.png
+    - assets/images/facebooklogin.png
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -81,3 +98,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: ProductSans
+      fonts:
+        - asset: assets/fonts/Product-Sans-Regular.ttf
+        - asset: assets/fonts/Product-Sans-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Product-Sans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Product-Sans-Bold-Italic.ttf
+          style: italic
+          weight: 700
+          

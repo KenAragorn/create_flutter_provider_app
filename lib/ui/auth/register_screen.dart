@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/app_localizations.dart';
-import 'package:noteapp/models/user_model.dart';
-import 'package:noteapp/providers/auth_provider.dart';
-import 'package:noteapp/routes.dart';
+import 'package:create_flutter_provider_app/app_localizations.dart';
+import 'package:create_flutter_provider_app/models/user_model.dart';
+import 'package:create_flutter_provider_app/providers/auth_provider.dart';
+import 'package:create_flutter_provider_app/routes.dart';
 import 'package:provider/provider.dart';
+
+// register_screen
+// TODO: show error when email is badly formatted
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -67,7 +70,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 TextFormField(
                   controller: _emailController,
-                  style: Theme.of(context).textTheme.body1,
+                  //style: Theme.of(context).textTheme.bodyText1,
                   validator: (value) => value!.isEmpty
                       ? AppLocalizations.of(context)
                           .translate("loginTxtErrorEmail")
@@ -87,7 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: true,
                     maxLength: 12,
                     controller: _passwordController,
-                    style: Theme.of(context).textTheme.body1,
+                    //style: Theme.of(context).textTheme.bodyText1,
                     validator: (value) => value!.length < 6
                         ? AppLocalizations.of(context)
                             .translate("loginTxtErrorPassword")
@@ -106,11 +109,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ? Center(
                         child: CircularProgressIndicator(),
                       )
-                    : RaisedButton(
+                    : ElevatedButton(
                         child: Text(
                           AppLocalizations.of(context)
                               .translate("loginBtnSignUp"),
-                          style: Theme.of(context).textTheme.button,
+                          //style: Theme.of(context).textTheme.button,
                         ),
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
@@ -122,11 +125,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     _emailController.text,
                                     _passwordController.text);
 
-                            if (userModel == null) {
-                              _scaffoldKey.currentState!.showSnackBar(SnackBar(
+                            if (userModel.displayName == null) {
+                              ScaffoldMessenger.of(context).showSnackBar((SnackBar(
                                 content: Text(AppLocalizations.of(context)
                                     .translate("loginTxtErrorSignIn")),
-                              ));
+                              )));
                             }
                           }
                         }),
@@ -140,17 +143,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             child: Text(
                           AppLocalizations.of(context)
                               .translate("loginTxtHaveAccount"),
-                          style: Theme.of(context).textTheme.button,
+                          //style: Theme.of(context).textTheme.button,
                         )),
                       ),
                 authProvider.status == Status.Registering
                     ? Center(
                         child: null,
                       )
-                    : FlatButton(
+                    : ElevatedButton(
                         child: Text(AppLocalizations.of(context)
                             .translate("loginBtnLinkSignIn")),
-                        textColor: Theme.of(context).iconTheme.color,
+                        //textColor: Theme.of(context).iconTheme.color,
                         onPressed: () {
                           Navigator.of(context)
                               .pushReplacementNamed(Routes.login);

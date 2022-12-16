@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/constants/app_font_family.dart';
+import 'package:create_flutter_provider_app/constants/app_font_family.dart';
 
 class AppThemes {
   AppThemes._();
@@ -27,13 +27,13 @@ class AppThemes {
       fontSize: 12.0, color: _lightAppBarColor, fontWeight: FontWeight.w100);
 
   static final TextTheme _lightTextTheme = TextTheme(
-    headline: _lightScreenHeadingTextStyle,
-    body1: _lightScreenTaskNameTextStyle,
-    body2: _lightScreenTaskDurationTextStyle,
-    button: _lightScreenButtonTextStyle,
-    title: _lightScreenTaskNameTextStyle,
-    subhead: _lightScreenTaskNameTextStyle,
-    caption: _lightScreenCaptionTextStyle,
+    displayMedium: _lightScreenHeadingTextStyle,
+    bodyMedium: _lightScreenTaskNameTextStyle,
+    bodySmall: _lightScreenTaskDurationTextStyle,
+    labelSmall: _lightScreenButtonTextStyle,
+    titleSmall: _lightScreenTaskNameTextStyle,
+    bodyLarge: _lightScreenTaskNameTextStyle,
+    labelLarge: _lightScreenCaptionTextStyle,
   );
 
   //constants color range for dark theme
@@ -59,13 +59,13 @@ class AppThemes {
       fontSize: 12.0, color: _darkAppBarColor, fontWeight: FontWeight.w100);
 
   static final TextTheme _darkTextTheme = TextTheme(
-    headline: _darkScreenHeadingTextStyle,
-    body1: _darkScreenTaskNameTextStyle,
-    body2: _darkScreenTaskDurationTextStyle,
-    button: _darkScreenButtonTextStyle,
-    title: _darkScreenTaskNameTextStyle,
-    subhead: _darkScreenTaskNameTextStyle,
-    caption: _darkScreenCaptionTextStyle,
+    displayMedium: _darkScreenHeadingTextStyle,
+    bodyMedium: _darkScreenTaskNameTextStyle,
+    bodySmall: _darkScreenTaskDurationTextStyle,
+    labelSmall: _darkScreenButtonTextStyle,
+    titleSmall: _darkScreenTaskNameTextStyle,
+    bodyLarge: _darkScreenTaskNameTextStyle,
+    labelLarge: _darkScreenCaptionTextStyle,
   );
 
   //the light theme
@@ -78,11 +78,11 @@ class AppThemes {
     appBarTheme: AppBarTheme(
       color: _lightAppBarColor,
       iconTheme: IconThemeData(color: _lightOnPrimaryColor),
-      textTheme: _lightTextTheme,
+      //textTheme: _lightTextTheme,
     ),
     colorScheme: ColorScheme.light(
       primary: _lightPrimaryColor,
-      primaryVariant: _lightPrimaryVariantColor,
+      //primaryVariant: _lightPrimaryVariantColor,
       secondary: _lightSecondaryColor,
       onPrimary: _lightOnPrimaryColor,
     ),
@@ -96,6 +96,11 @@ class AppThemes {
     buttonTheme: ButtonThemeData(
         buttonColor: _lightButtonPrimaryColor,
         textTheme: ButtonTextTheme.primary),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _lightButtonPrimaryColor,
+        foregroundColor: _lightPrimaryColor,
+      )),
     unselectedWidgetColor: _lightPrimaryColor,
     inputDecorationTheme: InputDecorationTheme(
         fillColor: _lightPrimaryColor,
@@ -114,11 +119,11 @@ class AppThemes {
     appBarTheme: AppBarTheme(
       color: _darkAppBarColor,
       iconTheme: IconThemeData(color: _darkOnPrimaryColor),
-      textTheme: _darkTextTheme,
+      //textTheme: _darkTextTheme,
     ),
     colorScheme: ColorScheme.light(
       primary: _darkPrimaryColor,
-      primaryVariant: _darkPrimaryVariantColor,
+      //primaryVariant: _darkPrimaryVariantColor,
       secondary: _darkSecondaryColor,
       onPrimary: _darkOnPrimaryColor,
     ),
@@ -132,6 +137,11 @@ class AppThemes {
     buttonTheme: ButtonThemeData(
         buttonColor: _darkButtonPrimaryColor,
         textTheme: ButtonTextTheme.primary),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _darkButtonPrimaryColor,
+        foregroundColor: _lightPrimaryColor,
+      )),
     unselectedWidgetColor: _darkPrimaryColor,
     inputDecorationTheme: InputDecorationTheme(
         fillColor: _darkPrimaryColor,
