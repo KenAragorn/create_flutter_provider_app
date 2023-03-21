@@ -71,6 +71,7 @@ class SettingScreen extends StatelessWidget {
                   AppLocalizations.of(context).translate("alertDialogMessage")),
               actions: <Widget>[
                 PlatformDialogAction(
+                  /*#1 - fixing update the #1 issue. */
                   child: PlatformText(AppLocalizations.of(context)
                       .translate("alertDialogCancelBtn")),
                   onPressed: () => Navigator.pop(context),
@@ -86,6 +87,7 @@ class SettingScreen extends StatelessWidget {
 
                     Navigator.pop(context);
                     Navigator.of(context).pushNamedAndRemoveUntil(
+                      /*#1 - update code on here TODO_list */
                         Routes.login, ModalRoute.withName(Routes.login));
                   },
                 )
